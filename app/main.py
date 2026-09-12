@@ -356,9 +356,10 @@ def render_tests() -> None:
     )
     st.code("pytest -q\nruff check .\nblack --check .", language="bash")
     st.write(
-        "Lab 1 ships **52 tests** across three files: `tests/test_domain.py` "
-        "(immutability), `tests/test_loader.py` (parsing and the shipped dataset) "
-        "and `tests/test_transforms.py` (the functional core)."
+        "Lab 1 ships **70 tests** across four files: `tests/test_domain.py` "
+        "(immutability), `tests/test_loader.py` (parsing and the shipped dataset), "
+        "`tests/test_transforms.py` (the functional core) and `tests/test_app.py` "
+        "(this page, driven by Streamlit's AppTest harness)."
     )
 
 
