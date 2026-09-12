@@ -1,0 +1,7 @@
+# Keep line endings consistent between Windows checkouts and Linux CI,
+# otherwise `black --check` disagrees with `black` run locally.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.pdf binary
