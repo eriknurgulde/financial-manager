@@ -19,6 +19,12 @@ target-version = "py311"
 # RET  - return style     SIM - simplify
 select = ["E", "W", "F", "I", "B", "UP", "C4", "RET", "SIM"]
 
+[tool.ruff.lint.per-file-ignores]
+# C417 asks us to rewrite map()/filter() as generator expressions. The Lab 1
+# acceptance criteria explicitly require map/filter/reduce, so the rule is
+# switched off for the functional core only - everywhere else it still applies.
+"core/transforms.py" = ["C417"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"
