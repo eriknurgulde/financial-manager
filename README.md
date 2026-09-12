@@ -24,7 +24,7 @@ The app opens at <http://localhost:8501>.
 ### Checks
 
 ```bash
-pytest -q          # 69 tests
+pytest -q          # 70 tests
 ruff check .       # lint
 black --check .    # formatting
 ```
@@ -69,7 +69,7 @@ financial-manager/
 │   └── generate_seed.py     # reproducible generator for seed.json
 ├── tests/
 │   ├── test_domain.py       # 12 — immutability guarantees
-│   ├── test_loader.py       # 15 — parsing and dataset integrity
+│   ├── test_loader.py       # 16 — parsing and dataset integrity
 │   ├── test_transforms.py   # 25 — the functional core
 │   └── test_app.py          # 17 — the Streamlit page, via AppTest
 ├── pyproject.toml           # black, ruff and pytest configuration
@@ -138,7 +138,7 @@ pure.
 | `map` / `filter` / `reduce` used | `core/transforms.py` throughout |
 | `data/seed.json`: ≥3 accounts, ≥10 categories with hierarchy, ≥100 transactions, ≥3 budgets | 3 / 20 / 128 / 5 — checked by `tests/test_loader.py` |
 | Overview shows counts and total balance | `app/main.py`, Overview |
-| At least 5 tests | **69** |
+| At least 5 tests | **70** |
 
 ### The dataset
 
@@ -177,11 +177,22 @@ for `core/transforms.py` only — every other file still has it. See `pyproject.
 
 ## Team
 
-| Member | Lab 1 contribution |
-|---|---|
-| Erik Nurgulde | Repository setup, project structure |
-| Dimasena | — |
-| Zhangir | Tooling and CI, domain models, seed dataset and loader, functional core, Streamlit UI, test suite |
+| Member | GitHub | Lab 1 contribution |
+|---|---|---|
+| Erik Nurgulde | [@eriknurgulde](https://github.com/eriknurgulde) | Repository setup, initial project structure |
+| Dimasena | [@Dimasena](https://github.com/Dimasena) | — |
+| Zhangir | [@zhangir777](https://github.com/zhangir777) | Tooling and CI, domain models, seed dataset and loader, functional core, Streamlit UI, test suite |
+
+Code review for `lab-01` is requested from @eriknurgulde and @Dimasena.
+
+### How we work
 
 Each lab is submitted as a separate pull request (`lab-01`, `lab-02`, …) with a short
-screencast.
+screencast. Work lands on the lab branch through small feature branches, one pull request
+each, so every piece gets reviewed on its own:
+
+```
+feat/<something>  ->  lab-0N  ->  main
+```
+
+`ruff`, `black` and `pytest` run on every pull request; a red build blocks the merge.
