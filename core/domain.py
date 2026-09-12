@@ -1,4 +1,4 @@
-﻿"""Immutable domain entities.
+"""Immutable domain entities.
 
 Every entity is a frozen dataclass, so an "update" can only ever produce a new
 value - there is no way to mutate an existing one. That property is what lets
