@@ -129,6 +129,20 @@ def test_shipped_seed_ids_are_unique():
         assert len(ids) == len(set(ids))
 
 
+def test_shipped_seed_is_stored_with_lf_line_endings():
+    """Guards the reproducibility claim in the README.
+
+    `.gitattributes` normalises the repository to LF, so a checkout on any OS
+    has LF. If the generator wrote CRLF (which Python does by default on
+    Windows), regenerating the file would produce different bytes than the ones
+    git stores and "run it twice, get the same file" would quietly stop being
+    true for half the team.
+    """
+    raw = DEFAULT_SEED_PATH.read_bytes()
+
+    assert b"\r\n" not in raw
+
+
 def test_shipped_seed_respects_the_sign_convention():
     _, categories, transactions, _ = load_seed(DEFAULT_SEED_PATH)
     kind = {c.id: c.type for c in categories}

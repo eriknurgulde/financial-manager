@@ -223,8 +223,14 @@ def main() -> None:
     }
 
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
+    # newline="\n" is not optional: without it Python translates "\n" to "\r\n"
+    # on Windows, so the generated file would differ from the LF version git
+    # stores (.gitattributes) and "run it twice, get the same bytes" would only
+    # hold on Linux and macOS.
     OUT_PATH.write_text(
-        json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+        json.dumps(payload, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+        newline="\n",
     )
 
     print(f"wrote {OUT_PATH}")
