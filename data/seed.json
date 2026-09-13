@@ -1,0 +1,1202 @@
+{
+  "accounts": [
+    {
+      "id": "a_kaspi",
+      "name": "Kaspi Gold",
+      "balance": 18000000,
+      "currency": "KZT"
+    },
+    {
+      "id": "a_halyk",
+      "name": "Halyk Debit",
+      "balance": 9500000,
+      "currency": "KZT"
+    },
+    {
+      "id": "a_cash",
+      "name": "Cash",
+      "balance": 2500000,
+      "currency": "KZT"
+    }
+  ],
+  "categories": [
+    {
+      "id": "c_food",
+      "name": "Food",
+      "parent_id": null,
+      "type": "expense"
+    },
+    {
+      "id": "c_food_groceries",
+      "name": "Groceries",
+      "parent_id": "c_food",
+      "type": "expense"
+    },
+    {
+      "id": "c_food_cafe",
+      "name": "Cafes & Restaurants",
+      "parent_id": "c_food",
+      "type": "expense"
+    },
+    {
+      "id": "c_food_coffee",
+      "name": "Coffee",
+      "parent_id": "c_food",
+      "type": "expense"
+    },
+    {
+      "id": "c_transport",
+      "name": "Transport",
+      "parent_id": null,
+      "type": "expense"
+    },
+    {
+      "id": "c_transport_taxi",
+      "name": "Taxi",
+      "parent_id": "c_transport",
+      "type": "expense"
+    },
+    {
+      "id": "c_transport_fuel",
+      "name": "Fuel",
+      "parent_id": "c_transport",
+      "type": "expense"
+    },
+    {
+      "id": "c_transport_public",
+      "name": "Public transport",
+      "parent_id": "c_transport",
+      "type": "expense"
+    },
+    {
+      "id": "c_leisure",
+      "name": "Leisure",
+      "parent_id": null,
+      "type": "expense"
+    },
+    {
+      "id": "c_leisure_cinema",
+      "name": "Cinema",
+      "parent_id": "c_leisure",
+      "type": "expense"
+    },
+    {
+      "id": "c_leisure_games",
+      "name": "Games",
+      "parent_id": "c_leisure",
+      "type": "expense"
+    },
+    {
+      "id": "c_leisure_travel",
+      "name": "Travel",
+      "parent_id": "c_leisure",
+      "type": "expense"
+    },
+    {
+      "id": "c_home",
+      "name": "Home",
+      "parent_id": null,
+      "type": "expense"
+    },
+    {
+      "id": "c_home_rent",
+      "name": "Rent",
+      "parent_id": "c_home",
+      "type": "expense"
+    },
+    {
+      "id": "c_home_utilities",
+      "name": "Utilities",
+      "parent_id": "c_home",
+      "type": "expense"
+    },
+    {
+      "id": "c_health",
+      "name": "Health",
+      "parent_id": null,
+      "type": "expense"
+    },
+    {
+      "id": "c_health_pharmacy",
+      "name": "Pharmacy",
+      "parent_id": "c_health",
+      "type": "expense"
+    },
+    {
+      "id": "c_income",
+      "name": "Income",
+      "parent_id": null,
+      "type": "income"
+    },
+    {
+      "id": "c_income_salary",
+      "name": "Salary",
+      "parent_id": "c_income",
+      "type": "income"
+    },
+    {
+      "id": "c_income_freelance",
+      "name": "Freelance",
+      "parent_id": "c_income",
+      "type": "income"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "t0001",
+      "account_id": "a_kaspi",
+      "cat_id": "c_leisure_travel",
+      "amount": -3067100,
+      "ts": "2026-06-01T18:40:00",
+      "note": "Hostel"
+    },
+    {
+      "id": "t0002",
+      "account_id": "a_kaspi",
+      "cat_id": "c_home_rent",
+      "amount": -12000000,
+      "ts": "2026-06-03T10:00:00",
+      "note": "Monthly rent"
+    },
+    {
+      "id": "t0003",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_groceries",
+      "amount": -175900,
+      "ts": "2026-06-03T12:20:00",
+      "note": "Galmart"
+    },
+    {
+      "id": "t0004",
+      "account_id": "a_kaspi",
+      "cat_id": "c_leisure_games",
+      "amount": -707100,
+      "ts": "2026-06-03T21:55:00",
+      "note": "PS Store"
+    },
+    {
+      "id": "t0005",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_coffee",
+      "amount": -245800,
+      "ts": "2026-06-05T16:50:00",
+      "note": "Latte"
+    },
+    {
+      "id": "t0006",
+      "account_id": "a_kaspi",
+      "cat_id": "c_income_salary",
+      "amount": 35814500,
+      "ts": "2026-06-05T20:15:00",
+      "note": "Salary June"
+    },
+    {
+      "id": "t0007",
+      "account_id": "a_cash",
+      "cat_id": "c_leisure_cinema",
+      "amount": -569700,
+      "ts": "2026-06-06T12:40:00",
+      "note": "Chaplin cinema"
+    },
+    {
+      "id": "t0008",
+      "account_id": "a_cash",
+      "cat_id": "c_transport_taxi",
+      "amount": -138100,
+      "ts": "2026-06-07T20:05:00",
+      "note": "Taxi home"
+    },
+    {
+      "id": "t0009",
+      "account_id": "a_cash",
+      "cat_id": "c_transport_taxi",
+      "amount": -279700,
+      "ts": "2026-06-08T08:25:00",
+      "note": "Yandex Go"
+    },
+    {
+      "id": "t0010",
+      "account_id": "a_kaspi",
+      "cat_id": "c_transport_public",
+      "amount": -25400,
+      "ts": "2026-06-08T18:40:00",
+      "note": "Onay top-up"
+    },
+    {
+      "id": "t0011",
+      "account_id": "a_kaspi",
+      "cat_id": "c_transport_public",
+      "amount": -27100,
+      "ts": "2026-06-09T11:45:00",
+      "note": "Bus"
+    },
+    {
+      "id": "t0012",
+      "account_id": "a_halyk",
+      "cat_id": "c_food_groceries",
+      "amount": -772500,
+      "ts": "2026-06-09T12:55:00",
+      "note": "Magnum"
+    },
+    {
+      "id": "t0013",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_groceries",
+      "amount": -861900,
+      "ts": "2026-06-10T07:45:00",
+      "note": "Small"
+    },
+    {
+      "id": "t0014",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_coffee",
+      "amount": -193800,
+      "ts": "2026-06-10T14:50:00",
+      "note": "Americano"
+    },
+    {
+      "id": "t0015",
+      "account_id": "a_halyk",
+      "cat_id": "c_food_cafe",
+      "amount": -388800,
+      "ts": "2026-06-10T15:50:00",
+      "note": "Lunch"
+    },
+    {
+      "id": "t0016",
+      "account_id": "a_halyk",
+      "cat_id": "c_home_utilities",
+      "amount": -1918400,
+      "ts": "2026-06-10T22:05:00",
+      "note": "Utilities bill"
+    },
+    {
+      "id": "t0017",
+      "account_id": "a_cash",
+      "cat_id": "c_transport_fuel",
+      "amount": -1094000,
+      "ts": "2026-06-11T07:55:00",
+      "note": "KazMunayGas"
+    },
+    {
+      "id": "t0018",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_coffee",
+      "amount": -146800,
+      "ts": "2026-06-11T14:30:00",
+      "note": "Coffee to go"
+    },
+    {
+      "id": "t0019",
+      "account_id": "a_kaspi",
+      "cat_id": "c_leisure_travel",
+      "amount": -12803500,
+      "ts": "2026-06-11T17:20:00",
+      "note": "Hostel"
+    },
+    {
+      "id": "t0020",
+      "account_id": "a_halyk",
+      "cat_id": "c_leisure_travel",
+      "amount": -11141400,
+      "ts": "2026-06-12T09:05:00",
+      "note": "Train ticket"
+    },
+    {
+      "id": "t0021",
+      "account_id": "a_kaspi",
+      "cat_id": "c_transport_public",
+      "amount": -44400,
+      "ts": "2026-06-14T08:40:00",
+      "note": "Bus"
+    },
+    {
+      "id": "t0022",
+      "account_id": "a_kaspi",
+      "cat_id": "c_transport_public",
+      "amount": -35700,
+      "ts": "2026-06-14T08:55:00",
+      "note": "Onay top-up"
+    },
+    {
+      "id": "t0023",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_groceries",
+      "amount": -219000,
+      "ts": "2026-06-15T12:20:00",
+      "note": "Galmart"
+    },
+    {
+      "id": "t0024",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_cafe",
+      "amount": -377900,
+      "ts": "2026-06-15T12:40:00",
+      "note": "Lunch"
+    },
+    {
+      "id": "t0025",
+      "account_id": "a_cash",
+      "cat_id": "c_food_coffee",
+      "amount": -225600,
+      "ts": "2026-06-16T19:15:00",
+      "note": "Coffee to go"
+    },
+    {
+      "id": "t0026",
+      "account_id": "a_kaspi",
+      "cat_id": "c_leisure_travel",
+      "amount": -7333900,
+      "ts": "2026-06-17T07:10:00",
+      "note": "Hostel"
+    },
+    {
+      "id": "t0027",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_groceries",
+      "amount": -432100,
+      "ts": "2026-06-17T08:55:00",
+      "note": "Small"
+    },
+    {
+      "id": "t0028",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_coffee",
+      "amount": -94900,
+      "ts": "2026-06-20T09:15:00",
+      "note": "Coffee to go"
+    },
+    {
+      "id": "t0029",
+      "account_id": "a_kaspi",
+      "cat_id": "c_transport_taxi",
+      "amount": -146900,
+      "ts": "2026-06-20T17:45:00",
+      "note": "Yandex Go"
+    },
+    {
+      "id": "t0030",
+      "account_id": "a_halyk",
+      "cat_id": "c_income_freelance",
+      "amount": 12046500,
+      "ts": "2026-06-22T14:40:00",
+      "note": "Freelance project"
+    },
+    {
+      "id": "t0031",
+      "account_id": "a_kaspi",
+      "cat_id": "c_transport_taxi",
+      "amount": -154100,
+      "ts": "2026-06-22T14:45:00",
+      "note": "Yandex Go"
+    },
+    {
+      "id": "t0032",
+      "account_id": "a_halyk",
+      "cat_id": "c_food_coffee",
+      "amount": -110500,
+      "ts": "2026-06-22T17:45:00",
+      "note": "Americano"
+    },
+    {
+      "id": "t0033",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_groceries",
+      "amount": -612200,
+      "ts": "2026-06-23T16:30:00",
+      "note": "Magnum"
+    },
+    {
+      "id": "t0034",
+      "account_id": "a_cash",
+      "cat_id": "c_food_groceries",
+      "amount": -681300,
+      "ts": "2026-06-23T16:45:00",
+      "note": "Corner shop"
+    },
+    {
+      "id": "t0035",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_coffee",
+      "amount": -205200,
+      "ts": "2026-06-25T07:10:00",
+      "note": "Latte"
+    },
+    {
+      "id": "t0036",
+      "account_id": "a_halyk",
+      "cat_id": "c_food_groceries",
+      "amount": -639700,
+      "ts": "2026-06-26T14:00:00",
+      "note": "Corner shop"
+    },
+    {
+      "id": "t0037",
+      "account_id": "a_cash",
+      "cat_id": "c_food_groceries",
+      "amount": -1012600,
+      "ts": "2026-06-27T09:45:00",
+      "note": "Small"
+    },
+    {
+      "id": "t0038",
+      "account_id": "a_kaspi",
+      "cat_id": "c_transport_taxi",
+      "amount": -219900,
+      "ts": "2026-06-28T09:20:00",
+      "note": "InDrive"
+    },
+    {
+      "id": "t0039",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_coffee",
+      "amount": -98500,
+      "ts": "2026-06-28T17:35:00",
+      "note": "Americano"
+    },
+    {
+      "id": "t0040",
+      "account_id": "a_halyk",
+      "cat_id": "c_leisure_games",
+      "amount": -1272200,
+      "ts": "2026-06-30T16:15:00",
+      "note": "Steam"
+    },
+    {
+      "id": "t0041",
+      "account_id": "a_halyk",
+      "cat_id": "c_income_freelance",
+      "amount": 7326300,
+      "ts": "2026-07-02T12:55:00",
+      "note": "Freelance project"
+    },
+    {
+      "id": "t0042",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_coffee",
+      "amount": -96700,
+      "ts": "2026-07-03T08:15:00",
+      "note": "Latte"
+    },
+    {
+      "id": "t0043",
+      "account_id": "a_halyk",
+      "cat_id": "c_food_groceries",
+      "amount": -1092700,
+      "ts": "2026-07-03T17:15:00",
+      "note": "Galmart"
+    },
+    {
+      "id": "t0044",
+      "account_id": "a_halyk",
+      "cat_id": "c_leisure_travel",
+      "amount": -13505800,
+      "ts": "2026-07-03T21:20:00",
+      "note": "Hostel"
+    },
+    {
+      "id": "t0045",
+      "account_id": "a_kaspi",
+      "cat_id": "c_home_rent",
+      "amount": -12000000,
+      "ts": "2026-07-03T21:40:00",
+      "note": "Monthly rent"
+    },
+    {
+      "id": "t0046",
+      "account_id": "a_kaspi",
+      "cat_id": "c_income_salary",
+      "amount": 37613600,
+      "ts": "2026-07-05T09:35:00",
+      "note": "Salary July"
+    },
+    {
+      "id": "t0047",
+      "account_id": "a_kaspi",
+      "cat_id": "c_transport_public",
+      "amount": -58900,
+      "ts": "2026-07-05T12:10:00",
+      "note": "Bus"
+    },
+    {
+      "id": "t0048",
+      "account_id": "a_cash",
+      "cat_id": "c_health_pharmacy",
+      "amount": -752900,
+      "ts": "2026-07-07T20:10:00",
+      "note": "Europharma"
+    },
+    {
+      "id": "t0049",
+      "account_id": "a_halyk",
+      "cat_id": "c_food_coffee",
+      "amount": -160600,
+      "ts": "2026-07-09T17:25:00",
+      "note": "Latte"
+    },
+    {
+      "id": "t0050",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_coffee",
+      "amount": -165700,
+      "ts": "2026-07-09T20:00:00",
+      "note": "Latte"
+    },
+    {
+      "id": "t0051",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_groceries",
+      "amount": -519700,
+      "ts": "2026-07-09T20:25:00",
+      "note": "Galmart"
+    },
+    {
+      "id": "t0052",
+      "account_id": "a_halyk",
+      "cat_id": "c_home_utilities",
+      "amount": -2034100,
+      "ts": "2026-07-10T08:50:00",
+      "note": "Utilities bill"
+    },
+    {
+      "id": "t0053",
+      "account_id": "a_halyk",
+      "cat_id": "c_income_freelance",
+      "amount": 3701200,
+      "ts": "2026-07-11T08:25:00",
+      "note": "Freelance project"
+    },
+    {
+      "id": "t0054",
+      "account_id": "a_halyk",
+      "cat_id": "c_income_freelance",
+      "amount": 12437300,
+      "ts": "2026-07-11T11:05:00",
+      "note": "Freelance project"
+    },
+    {
+      "id": "t0055",
+      "account_id": "a_kaspi",
+      "cat_id": "c_transport_public",
+      "amount": -24400,
+      "ts": "2026-07-12T14:20:00",
+      "note": "Bus"
+    },
+    {
+      "id": "t0056",
+      "account_id": "a_halyk",
+      "cat_id": "c_food_coffee",
+      "amount": -136000,
+      "ts": "2026-07-12T16:10:00",
+      "note": "Americano"
+    },
+    {
+      "id": "t0057",
+      "account_id": "a_cash",
+      "cat_id": "c_transport_taxi",
+      "amount": -263400,
+      "ts": "2026-07-12T22:15:00",
+      "note": "Yandex Go"
+    },
+    {
+      "id": "t0058",
+      "account_id": "a_kaspi",
+      "cat_id": "c_transport_taxi",
+      "amount": -76700,
+      "ts": "2026-07-15T14:15:00",
+      "note": "InDrive"
+    },
+    {
+      "id": "t0059",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_groceries",
+      "amount": -705200,
+      "ts": "2026-07-15T15:10:00",
+      "note": "Small"
+    },
+    {
+      "id": "t0060",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_groceries",
+      "amount": -1179200,
+      "ts": "2026-07-15T20:35:00",
+      "note": "Corner shop"
+    },
+    {
+      "id": "t0061",
+      "account_id": "a_halyk",
+      "cat_id": "c_health_pharmacy",
+      "amount": -342500,
+      "ts": "2026-07-17T10:05:00",
+      "note": "Europharma"
+    },
+    {
+      "id": "t0062",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_coffee",
+      "amount": -124500,
+      "ts": "2026-07-17T19:05:00",
+      "note": "Americano"
+    },
+    {
+      "id": "t0063",
+      "account_id": "a_kaspi",
+      "cat_id": "c_transport_taxi",
+      "amount": -276800,
+      "ts": "2026-07-18T13:25:00",
+      "note": "Taxi home"
+    },
+    {
+      "id": "t0064",
+      "account_id": "a_halyk",
+      "cat_id": "c_food_coffee",
+      "amount": -121300,
+      "ts": "2026-07-18T22:40:00",
+      "note": "Latte"
+    },
+    {
+      "id": "t0065",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_groceries",
+      "amount": -1038600,
+      "ts": "2026-07-19T07:20:00",
+      "note": "Corner shop"
+    },
+    {
+      "id": "t0066",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_cafe",
+      "amount": -618000,
+      "ts": "2026-07-19T15:45:00",
+      "note": "Lunch"
+    },
+    {
+      "id": "t0067",
+      "account_id": "a_kaspi",
+      "cat_id": "c_transport_taxi",
+      "amount": -342300,
+      "ts": "2026-07-20T17:20:00",
+      "note": "Yandex Go"
+    },
+    {
+      "id": "t0068",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_groceries",
+      "amount": -261000,
+      "ts": "2026-07-20T19:15:00",
+      "note": "Corner shop"
+    },
+    {
+      "id": "t0069",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_cafe",
+      "amount": -239300,
+      "ts": "2026-07-20T21:05:00",
+      "note": "Dinner with friends"
+    },
+    {
+      "id": "t0070",
+      "account_id": "a_cash",
+      "cat_id": "c_food_coffee",
+      "amount": -219700,
+      "ts": "2026-07-22T17:35:00",
+      "note": "Americano"
+    },
+    {
+      "id": "t0071",
+      "account_id": "a_kaspi",
+      "cat_id": "c_leisure_cinema",
+      "amount": -589000,
+      "ts": "2026-07-22T18:15:00",
+      "note": "Kinopark"
+    },
+    {
+      "id": "t0072",
+      "account_id": "a_kaspi",
+      "cat_id": "c_transport_taxi",
+      "amount": -148300,
+      "ts": "2026-07-24T18:10:00",
+      "note": "Yandex Go"
+    },
+    {
+      "id": "t0073",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_cafe",
+      "amount": -436000,
+      "ts": "2026-07-29T10:10:00",
+      "note": "Dinner with friends"
+    },
+    {
+      "id": "t0074",
+      "account_id": "a_kaspi",
+      "cat_id": "c_leisure_games",
+      "amount": -1687700,
+      "ts": "2026-07-31T20:00:00",
+      "note": "PS Store"
+    },
+    {
+      "id": "t0075",
+      "account_id": "a_kaspi",
+      "cat_id": "c_transport_public",
+      "amount": -10100,
+      "ts": "2026-08-01T21:00:00",
+      "note": "Onay top-up"
+    },
+    {
+      "id": "t0076",
+      "account_id": "a_kaspi",
+      "cat_id": "c_transport_taxi",
+      "amount": -226400,
+      "ts": "2026-08-02T09:55:00",
+      "note": "Yandex Go"
+    },
+    {
+      "id": "t0077",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_groceries",
+      "amount": -845900,
+      "ts": "2026-08-02T16:40:00",
+      "note": "Galmart"
+    },
+    {
+      "id": "t0078",
+      "account_id": "a_kaspi",
+      "cat_id": "c_home_rent",
+      "amount": -12000000,
+      "ts": "2026-08-03T22:00:00",
+      "note": "Monthly rent"
+    },
+    {
+      "id": "t0079",
+      "account_id": "a_kaspi",
+      "cat_id": "c_income_salary",
+      "amount": 35840800,
+      "ts": "2026-08-05T17:55:00",
+      "note": "Salary August"
+    },
+    {
+      "id": "t0080",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_groceries",
+      "amount": -681000,
+      "ts": "2026-08-06T19:10:00",
+      "note": "Small"
+    },
+    {
+      "id": "t0081",
+      "account_id": "a_kaspi",
+      "cat_id": "c_leisure_cinema",
+      "amount": -298400,
+      "ts": "2026-08-07T19:30:00",
+      "note": "Chaplin cinema"
+    },
+    {
+      "id": "t0082",
+      "account_id": "a_halyk",
+      "cat_id": "c_food_coffee",
+      "amount": -218100,
+      "ts": "2026-08-08T09:55:00",
+      "note": "Coffee to go"
+    },
+    {
+      "id": "t0083",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_coffee",
+      "amount": -119100,
+      "ts": "2026-08-08T22:50:00",
+      "note": "Americano"
+    },
+    {
+      "id": "t0084",
+      "account_id": "a_halyk",
+      "cat_id": "c_home_utilities",
+      "amount": -1640900,
+      "ts": "2026-08-10T10:35:00",
+      "note": "Utilities bill"
+    },
+    {
+      "id": "t0085",
+      "account_id": "a_cash",
+      "cat_id": "c_food_cafe",
+      "amount": -457400,
+      "ts": "2026-08-10T20:55:00",
+      "note": "Lunch"
+    },
+    {
+      "id": "t0086",
+      "account_id": "a_halyk",
+      "cat_id": "c_food_coffee",
+      "amount": -232500,
+      "ts": "2026-08-11T12:10:00",
+      "note": "Latte"
+    },
+    {
+      "id": "t0087",
+      "account_id": "a_halyk",
+      "cat_id": "c_transport_taxi",
+      "amount": -102000,
+      "ts": "2026-08-12T11:10:00",
+      "note": "Taxi home"
+    },
+    {
+      "id": "t0088",
+      "account_id": "a_cash",
+      "cat_id": "c_food_cafe",
+      "amount": -604700,
+      "ts": "2026-08-13T09:05:00",
+      "note": "Lunch"
+    },
+    {
+      "id": "t0089",
+      "account_id": "a_kaspi",
+      "cat_id": "c_leisure_games",
+      "amount": -415400,
+      "ts": "2026-08-13T17:00:00",
+      "note": "Steam"
+    },
+    {
+      "id": "t0090",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_groceries",
+      "amount": -501000,
+      "ts": "2026-08-16T08:05:00",
+      "note": "Magnum"
+    },
+    {
+      "id": "t0091",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_groceries",
+      "amount": -962200,
+      "ts": "2026-08-16T19:05:00",
+      "note": "Galmart"
+    },
+    {
+      "id": "t0092",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_groceries",
+      "amount": -520600,
+      "ts": "2026-08-18T14:40:00",
+      "note": "Small"
+    },
+    {
+      "id": "t0093",
+      "account_id": "a_halyk",
+      "cat_id": "c_food_coffee",
+      "amount": -108000,
+      "ts": "2026-08-18T16:45:00",
+      "note": "Latte"
+    },
+    {
+      "id": "t0094",
+      "account_id": "a_kaspi",
+      "cat_id": "c_transport_taxi",
+      "amount": -343000,
+      "ts": "2026-08-19T22:55:00",
+      "note": "Yandex Go"
+    },
+    {
+      "id": "t0095",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_groceries",
+      "amount": -633100,
+      "ts": "2026-08-20T19:10:00",
+      "note": "Corner shop"
+    },
+    {
+      "id": "t0096",
+      "account_id": "a_kaspi",
+      "cat_id": "c_leisure_games",
+      "amount": -1314500,
+      "ts": "2026-08-21T09:15:00",
+      "note": "Steam"
+    },
+    {
+      "id": "t0097",
+      "account_id": "a_kaspi",
+      "cat_id": "c_leisure_travel",
+      "amount": -4826900,
+      "ts": "2026-08-21T10:55:00",
+      "note": "Hostel"
+    },
+    {
+      "id": "t0098",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_groceries",
+      "amount": -1120600,
+      "ts": "2026-08-21T11:40:00",
+      "note": "Corner shop"
+    },
+    {
+      "id": "t0099",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_coffee",
+      "amount": -202100,
+      "ts": "2026-08-22T22:35:00",
+      "note": "Americano"
+    },
+    {
+      "id": "t0100",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_groceries",
+      "amount": -868600,
+      "ts": "2026-08-24T08:25:00",
+      "note": "Corner shop"
+    },
+    {
+      "id": "t0101",
+      "account_id": "a_halyk",
+      "cat_id": "c_food_groceries",
+      "amount": -522100,
+      "ts": "2026-08-24T09:55:00",
+      "note": "Galmart"
+    },
+    {
+      "id": "t0102",
+      "account_id": "a_kaspi",
+      "cat_id": "c_transport_taxi",
+      "amount": -198400,
+      "ts": "2026-08-24T15:10:00",
+      "note": "Taxi home"
+    },
+    {
+      "id": "t0103",
+      "account_id": "a_kaspi",
+      "cat_id": "c_leisure_cinema",
+      "amount": -521500,
+      "ts": "2026-08-25T07:00:00",
+      "note": "Chaplin cinema"
+    },
+    {
+      "id": "t0104",
+      "account_id": "a_cash",
+      "cat_id": "c_transport_taxi",
+      "amount": -147700,
+      "ts": "2026-08-25T20:25:00",
+      "note": "InDrive"
+    },
+    {
+      "id": "t0105",
+      "account_id": "a_cash",
+      "cat_id": "c_food_cafe",
+      "amount": -663000,
+      "ts": "2026-08-25T21:50:00",
+      "note": "Burger place"
+    },
+    {
+      "id": "t0106",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_cafe",
+      "amount": -590300,
+      "ts": "2026-08-27T22:50:00",
+      "note": "Lunch"
+    },
+    {
+      "id": "t0107",
+      "account_id": "a_halyk",
+      "cat_id": "c_income_freelance",
+      "amount": 12600000,
+      "ts": "2026-08-28T14:30:00",
+      "note": "Freelance project"
+    },
+    {
+      "id": "t0108",
+      "account_id": "a_halyk",
+      "cat_id": "c_transport_taxi",
+      "amount": -222400,
+      "ts": "2026-08-29T09:15:00",
+      "note": "InDrive"
+    },
+    {
+      "id": "t0109",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_cafe",
+      "amount": -827700,
+      "ts": "2026-08-31T13:10:00",
+      "note": "Lunch"
+    },
+    {
+      "id": "t0110",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_coffee",
+      "amount": -77800,
+      "ts": "2026-09-01T07:30:00",
+      "note": "Americano"
+    },
+    {
+      "id": "t0111",
+      "account_id": "a_halyk",
+      "cat_id": "c_transport_taxi",
+      "amount": -90600,
+      "ts": "2026-09-01T14:55:00",
+      "note": "Taxi home"
+    },
+    {
+      "id": "t0112",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_groceries",
+      "amount": -463200,
+      "ts": "2026-09-02T08:20:00",
+      "note": "Magnum"
+    },
+    {
+      "id": "t0113",
+      "account_id": "a_halyk",
+      "cat_id": "c_food_groceries",
+      "amount": -438200,
+      "ts": "2026-09-02T13:10:00",
+      "note": "Galmart"
+    },
+    {
+      "id": "t0114",
+      "account_id": "a_halyk",
+      "cat_id": "c_transport_public",
+      "amount": -21000,
+      "ts": "2026-09-02T16:15:00",
+      "note": "Onay top-up"
+    },
+    {
+      "id": "t0115",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_groceries",
+      "amount": -709100,
+      "ts": "2026-09-02T21:05:00",
+      "note": "Small"
+    },
+    {
+      "id": "t0116",
+      "account_id": "a_kaspi",
+      "cat_id": "c_home_rent",
+      "amount": -12000000,
+      "ts": "2026-09-03T14:10:00",
+      "note": "Monthly rent"
+    },
+    {
+      "id": "t0117",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_coffee",
+      "amount": -218500,
+      "ts": "2026-09-03T21:50:00",
+      "note": "Coffee to go"
+    },
+    {
+      "id": "t0118",
+      "account_id": "a_cash",
+      "cat_id": "c_transport_public",
+      "amount": -27500,
+      "ts": "2026-09-04T19:55:00",
+      "note": "Bus"
+    },
+    {
+      "id": "t0119",
+      "account_id": "a_kaspi",
+      "cat_id": "c_income_salary",
+      "amount": 40774300,
+      "ts": "2026-09-05T09:10:00",
+      "note": "Salary September"
+    },
+    {
+      "id": "t0120",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_coffee",
+      "amount": -134500,
+      "ts": "2026-09-05T17:55:00",
+      "note": "Americano"
+    },
+    {
+      "id": "t0121",
+      "account_id": "a_kaspi",
+      "cat_id": "c_transport_taxi",
+      "amount": -278300,
+      "ts": "2026-09-08T08:00:00",
+      "note": "Taxi home"
+    },
+    {
+      "id": "t0122",
+      "account_id": "a_halyk",
+      "cat_id": "c_leisure_cinema",
+      "amount": -287600,
+      "ts": "2026-09-09T10:05:00",
+      "note": "Chaplin cinema"
+    },
+    {
+      "id": "t0123",
+      "account_id": "a_halyk",
+      "cat_id": "c_transport_taxi",
+      "amount": -284500,
+      "ts": "2026-09-09T20:00:00",
+      "note": "Yandex Go"
+    },
+    {
+      "id": "t0124",
+      "account_id": "a_kaspi",
+      "cat_id": "c_leisure_cinema",
+      "amount": -257100,
+      "ts": "2026-09-10T07:45:00",
+      "note": "Chaplin cinema"
+    },
+    {
+      "id": "t0125",
+      "account_id": "a_halyk",
+      "cat_id": "c_home_utilities",
+      "amount": -1823400,
+      "ts": "2026-09-10T10:15:00",
+      "note": "Utilities bill"
+    },
+    {
+      "id": "t0126",
+      "account_id": "a_halyk",
+      "cat_id": "c_income_freelance",
+      "amount": 8920400,
+      "ts": "2026-09-12T10:20:00",
+      "note": "Freelance project"
+    },
+    {
+      "id": "t0127",
+      "account_id": "a_kaspi",
+      "cat_id": "c_food_groceries",
+      "amount": -603800,
+      "ts": "2026-09-12T10:40:00",
+      "note": "Galmart"
+    },
+    {
+      "id": "t0128",
+      "account_id": "a_halyk",
+      "cat_id": "c_health_pharmacy",
+      "amount": -1286500,
+      "ts": "2026-09-12T13:00:00",
+      "note": "Vitamins"
+    }
+  ],
+  "budgets": [
+    {
+      "id": "b_food",
+      "cat_id": "c_food",
+      "limit": 9000000,
+      "period": "month"
+    },
+    {
+      "id": "b_transport",
+      "cat_id": "c_transport",
+      "limit": 4500000,
+      "period": "month"
+    },
+    {
+      "id": "b_leisure",
+      "cat_id": "c_leisure",
+      "limit": 4000000,
+      "period": "month"
+    },
+    {
+      "id": "b_coffee",
+      "cat_id": "c_food_coffee",
+      "limit": 600000,
+      "period": "week"
+    },
+    {
+      "id": "b_utilities",
+      "cat_id": "c_home_utilities",
+      "limit": 2000000,
+      "period": "month"
+    }
+  ]
+}
