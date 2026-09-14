@@ -80,7 +80,6 @@ def category_label(cats, cat_id: str) -> str:
 
 # --------------------------------------------------------------------------
 # Menu items
-# --------------------------------------------------------------------------
 
 
 def render_overview(accounts, cats, trans, budgets) -> None:
