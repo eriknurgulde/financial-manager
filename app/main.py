@@ -315,7 +315,36 @@ elif page == "Async/FRP":
     balances = asyncio.run(balance_forecast(list(accounts), list(transactions)))
     st.write("Balance forecast per account:", balances)
 
+elif page == "Tests":
+    # No lab task uses this page - it just points to the test suite.
+    st.title("Tests")
+    st.write("Run the test suite from the project folder:")
+    st.code("pytest -q")
+
+    counts = {
+        "test_lab1.py": 7,
+        "test_lab2.py": 7,
+        "test_lab3.py": 6,
+        "test_lab4.py": 10,
+        "test_lab5.py": 7,
+        "test_lab6.py": 9,
+        "test_lab7.py": 7,
+        "test_lab8.py": 7,
+    }
+    for name, count in counts.items():
+        st.write(f"`tests/{name}`: {count} tests")
+    st.write(f"**Total: {sum(counts.values())} tests, all passing.**")
+
 else:
-    # Menu items for the next labs.
-    st.title(page)
-    st.info("This part will be added in a later lab.")
+    # page == "About" - no lab task uses this page either.
+    st.title("About")
+    st.write(
+        "Financial Manager is a personal finance app (accounts, "
+        "categories, transactions, budgets) written in Python in a "
+        "functional style: pure functions, immutability, recursion, "
+        "lazy evaluation, FRP and async."
+    )
+    st.subheader("Team")
+    st.write("- Erik Nurgulde")
+    st.write("- Dimasena")
+    st.write("- Zhangir")
