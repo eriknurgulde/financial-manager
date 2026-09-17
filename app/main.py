@@ -13,6 +13,7 @@ ROOT = Path(__file__).parent.parent
 sys.path.append(str(ROOT))
 
 from core.domain import Transaction
+from core.ftypes import check_budget, safe_category, validate_transaction
 from core.memo import measure_forecast
 from core.recursion import flatten_categories, sum_expenses_recursive
 from core.transforms import (
@@ -95,6 +96,17 @@ elif page == "Functional Core":
     found = [t for t in transactions if cat_filter(t) and amount_filter(t)]
     st.write(f"Transactions found: {len(found)}")
 
+    st.subheader("Maybe: safe_category")
+    # safe_category returns Maybe.nothing() for an id that does not exist,
+    # so map/get_or_else handle a missing category without try/except.
+    maybe_cat_id = st.text_input("Category id to look up", value="food")
+    cat_name = (
+        safe_category(categories, maybe_cat_id)
+        .map(lambda c: c.name)
+        .get_or_else("(not found)")
+    )
+    st.write(f"Category name: {cat_name}")
+
 elif page == "Pipelines":
     # Lab 2 task: expense report based on the category hierarchy.
     st.title("Pipelines")
@@ -121,6 +133,22 @@ elif page == "Reports":
     st.metric(f"Forecast per period for {cat_id}", f"{result} KZT")
     st.write(f"First call (no cache): {before_ms:.4f} ms")
     st.write(f"Second call (cached): {after_ms:.4f} ms")
+
+    st.subheader("Transaction validation pipeline")
+    # Either.left_of carries the first problem found (bad account, bad
+    # category, or an exceeded budget). No try/except in the happy path.
+    t_id = st.selectbox("Transaction", [t.id for t in transactions], key="validate_t")
+    picked = next(t for t in transactions if t.id == t_id)
+
+    result = validate_transaction(picked, accounts, categories)
+    budget = next((b for b in budgets if b.cat_id == picked.cat_id), None)
+    if result.is_right and budget is not None:
+        result = check_budget(budget, transactions).map(lambda _b: picked)
+
+    if result.is_right:
+        st.success(f"Transaction {t_id} is valid")
+    else:
+        st.error(f"Transaction {t_id} rejected: {result.left}")
 
 else:
     # Menu items for the next labs.
