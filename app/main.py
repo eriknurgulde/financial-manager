@@ -1,6 +1,7 @@
 # Streamlit web app. Start it from the project folder:
 #     streamlit run app/main.py
 
+import asyncio
 import itertools
 import sys
 from dataclasses import asdict
@@ -13,6 +14,7 @@ import streamlit as st
 ROOT = Path(__file__).parent.parent
 sys.path.append(str(ROOT))
 
+from core.async_ops import balance_forecast, build_final_report, expenses_by_month
 from core.compose import compose, pipe
 from core.domain import Transaction
 from core.frp import (
@@ -236,6 +238,18 @@ elif page == "Reports":
     st.write("Steps:", cat_report["steps"])
     st.write(f"Total: {cat_report['total']} KZT, count: {cat_report['count']}")
 
+    st.subheader("Final report (one click)")
+    # Lab 8 end-to-end scenario: lazy filter -> lazy top categories ->
+    # cached forecast per top category -> parallel monthly/account
+    # totals (asyncio.gather), all built into one report dict.
+    if st.button("Build final report"):
+        final = build_final_report(accounts, categories, transactions, budgets)
+        st.write("Balances (forecast):", final["balances"])
+        st.write("Expenses by month:", final["expenses_by_month"])
+        st.write("Exceeded budgets:", final["exceeded_budgets"])
+        st.write("Top categories:", final["top_categories"])
+        st.write("Forecast per top category:", final["forecasts"])
+
 elif page == "Async/FRP":
     # Lab 6 task: event bus with pure subscriber functions.
     st.title("Async/FRP")
@@ -291,6 +305,15 @@ elif page == "Async/FRP":
             st.write(n)
     else:
         st.write("No alerts yet.")
+
+    st.subheader("Async aggregations")
+    # expenses_by_month and balance_forecast run one coroutine per month
+    # (or per account) and asyncio.gather runs them all together.
+    months = sorted({t.ts[:7] for t in transactions})
+    monthly = asyncio.run(expenses_by_month(list(transactions), months))
+    st.write("Expenses by month:", monthly)
+    balances = asyncio.run(balance_forecast(list(accounts), list(transactions)))
+    st.write("Balance forecast per account:", balances)
 
 else:
     # Menu items for the next labs.
