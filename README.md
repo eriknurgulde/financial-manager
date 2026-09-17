@@ -33,6 +33,7 @@ core/lazy.py          - generators for lazy evaluation (Lab 5)
 core/frp.py            - event bus and pure subscribers (Lab 6)
 core/compose.py        - compose / pipe (Lab 7)
 core/service.py        - BudgetService / ReportService facades (Lab 7)
+core/async_ops.py      - async aggregations and final report (Lab 8)
 data/seed.json       - test data
 tests/test_lab1.py   - tests for Lab 1
 tests/test_lab2.py   - tests for Lab 2
@@ -41,6 +42,7 @@ tests/test_lab4.py   - tests for Lab 4
 tests/test_lab5.py   - tests for Lab 5
 tests/test_lab6.py   - tests for Lab 6
 tests/test_lab7.py   - tests for Lab 7
+tests/test_lab8.py   - tests for Lab 8
 ```
 
 ## Lab 1 - Pure Functions, Immutability, HOF
@@ -158,6 +160,21 @@ into the service through `__init__` (dependency injection).
 In **Functional Core**, pick an amount to see `compose` and `pipe` give
 the same result for the same function order. In **Reports**, pick a
 month or a category to see the service pipeline and its steps.
+
+## Lab 8 - Parallelism / Async + Final Integration
+
+Menu: **Async/FRP** (parallel totals), **Reports** (final report)
+
+| Function | What it does |
+|---|---|
+| `expenses_by_month(trans, months)` | async: totals expenses per month, all months run together with `asyncio.gather` |
+| `balance_forecast(accounts, trans)` | async: forecasts each account's balance in parallel |
+| `build_final_report(accounts, categories, trans, budgets)` | End-to-end: lazy filter -> lazy top categories -> cached forecast -> parallel totals -> one report dict |
+
+In **Async/FRP**, "Async aggregations" shows the monthly expenses and
+per-account balance forecast, both computed in parallel. In **Reports**,
+"Final report (one click)" runs the whole pipeline and shows balances,
+expenses by month, exceeded budgets, top categories and their forecast.
 
 ## Team
 
