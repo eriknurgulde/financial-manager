@@ -59,3 +59,25 @@ def total_balance(accounts: tuple[Account, ...], trans: tuple[Transaction, ...])
         accounts,
         0,
     )
+
+
+# --- Closures (Lab 2) ---
+# A closure is a function that "remembers" the values from its outer
+# function. Each function below builds and returns a small filter
+# function that keeps that memory (cat_id, start/end, min/max).
+
+
+def by_category(cat_id: str):
+    # Returns a filter: keep only transactions of one category.
+    return lambda t: t.cat_id == cat_id
+
+
+def by_date_range(start: str, end: str):
+    # Returns a filter: keep only transactions inside [start, end].
+    # Dates are text like "2026-06-01", so normal text compare works.
+    return lambda t: start <= t.ts <= end
+
+
+def by_amount_range(min: int, max: int):
+    # Returns a filter: keep only transactions with amount in [min, max].
+    return lambda t: min <= t.amount <= max
