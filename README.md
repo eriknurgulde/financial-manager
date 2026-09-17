@@ -27,9 +27,11 @@ app/main.py          - the web page (menu and screens)
 core/domain.py       - data models (read-only / immutable)
 core/transforms.py   - pure functions and closures
 core/recursion.py    - category tree recursion (Lab 2)
+core/memo.py          - memoized forecast (Lab 3)
 data/seed.json       - test data
 tests/test_lab1.py   - tests for Lab 1
 tests/test_lab2.py   - tests for Lab 2
+tests/test_lab3.py   - tests for Lab 3
 ```
 
 ## Lab 1 - Pure Functions, Immutability, HOF
@@ -62,6 +64,19 @@ In **Functional Core**, pick a category and an amount range to see the
 closures filter transactions. In **Pipelines**, pick a root category
 (Food, Transport, Leisure, Income) to see its full tree and total
 expenses.
+
+## Lab 3 - Advanced Recursion + Memoization
+
+Menu: **Reports** (Forecast (cached))
+
+| Function | What it does |
+|---|---|
+| `forecast_expenses(cat_id, trans, period)` | Memoized (`lru_cache`): average expense per period for a category |
+| `measure_forecast(cat_id, trans, period)` | Runs the forecast cold and cached, returns both times in ms |
+
+In **Reports**, pick a category and a number of periods to see the
+forecast, plus how much faster the second (cached) call is compared to
+the first one.
 
 ## Team
 
