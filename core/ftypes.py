@@ -2,8 +2,9 @@
 # They let the caller chain map/bind/get_or_else instead of using
 # try/except in the "happy path" when a value may be missing or invalid.
 
+from collections.abc import Callable
 from dataclasses import dataclass
-from typing import Callable, Generic, TypeVar
+from typing import Generic, TypeVar
 
 from core.domain import Account, Budget, Category, Transaction
 
@@ -84,7 +85,9 @@ def validate_transaction(
     # First problem found becomes the Left error.
     acc_ok = any(a.id == t.account_id for a in accs)
     if not acc_ok:
-        return Either.left_of({"error": "account not found", "account_id": t.account_id})
+        return Either.left_of(
+            {"error": "account not found", "account_id": t.account_id}
+        )
 
     cat = safe_category(cats, t.cat_id)
     if not cat.has_value:
@@ -98,6 +101,11 @@ def check_budget(b: Budget, trans: tuple[Transaction, ...]) -> Either[dict, Budg
     spent = -sum(t.amount for t in trans if t.cat_id == b.cat_id and t.amount < 0)
     if spent > b.limit:
         return Either.left_of(
-            {"error": "budget exceeded", "cat_id": b.cat_id, "spent": spent, "limit": b.limit}
+            {
+                "error": "budget exceeded",
+                "cat_id": b.cat_id,
+                "spent": spent,
+                "limit": b.limit,
+            }
         )
     return Either.right_of(b)
