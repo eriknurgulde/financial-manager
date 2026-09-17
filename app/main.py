@@ -13,6 +13,7 @@ ROOT = Path(__file__).parent.parent
 sys.path.append(str(ROOT))
 
 from core.domain import Transaction
+from core.memo import measure_forecast
 from core.recursion import flatten_categories, sum_expenses_recursive
 from core.transforms import (
     account_balance,
@@ -107,6 +108,19 @@ elif page == "Pipelines":
 
     total = sum_expenses_recursive(categories, transactions, root)
     st.metric(f"Total expenses in {root}", f"{total} KZT")
+
+elif page == "Reports":
+    # Lab 3 task: memoized expense forecast with a cache speed demo.
+    st.title("Reports")
+    st.subheader("Forecast (cached)")
+
+    cat_id = st.selectbox("Category", [c.id for c in categories], key="forecast_cat")
+    period = st.number_input("Number of periods", min_value=1, value=3, step=1)
+
+    result, before_ms, after_ms = measure_forecast(cat_id, transactions, int(period))
+    st.metric(f"Forecast per period for {cat_id}", f"{result} KZT")
+    st.write(f"First call (no cache): {before_ms:.4f} ms")
+    st.write(f"Second call (cached): {after_ms:.4f} ms")
 
 else:
     # Menu items for the next labs.
