@@ -28,10 +28,12 @@ core/domain.py       - data models (read-only / immutable)
 core/transforms.py   - pure functions and closures
 core/recursion.py    - category tree recursion (Lab 2)
 core/memo.py          - memoized forecast (Lab 3)
+core/ftypes.py        - Maybe/Either containers (Lab 4)
 data/seed.json       - test data
 tests/test_lab1.py   - tests for Lab 1
 tests/test_lab2.py   - tests for Lab 2
 tests/test_lab3.py   - tests for Lab 3
+tests/test_lab4.py   - tests for Lab 4
 ```
 
 ## Lab 1 - Pure Functions, Immutability, HOF
@@ -77,6 +79,23 @@ Menu: **Reports** (Forecast (cached))
 In **Reports**, pick a category and a number of periods to see the
 forecast, plus how much faster the second (cached) call is compared to
 the first one.
+
+## Lab 4 - Functional Patterns: Maybe/Either
+
+Menu: **Functional Core** (Maybe), **Reports** (validation pipeline)
+
+| Function | What it does |
+|---|---|
+| `Maybe.some(x)` / `Maybe.nothing()` | Container for a value that may be missing, with `map`, `bind`, `get_or_else` |
+| `Either.right_of(x)` / `Either.left_of(e)` | Container for a good value or an error, with `map`, `bind`, `get_or_else` |
+| `safe_category(cats, cat_id)` | Looks up a category, returns `Maybe[Category]` |
+| `validate_transaction(t, accs, cats)` | Checks account and category exist, returns `Either[dict, Transaction]` |
+| `check_budget(b, trans)` | Checks a budget is not exceeded, returns `Either[dict, Budget]` |
+
+In **Functional Core**, type a category id to see `safe_category` handle a
+missing category through `Maybe` (no try/except). In **Reports**, pick a
+transaction to run it through the validation pipeline (account exists,
+category is valid, budget not exceeded) and see the `Either` result.
 
 ## Team
 
