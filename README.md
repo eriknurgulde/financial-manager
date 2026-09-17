@@ -31,6 +31,8 @@ core/memo.py          - memoized forecast (Lab 3)
 core/ftypes.py        - Maybe/Either containers (Lab 4)
 core/lazy.py          - generators for lazy evaluation (Lab 5)
 core/frp.py            - event bus and pure subscribers (Lab 6)
+core/compose.py        - compose / pipe (Lab 7)
+core/service.py        - BudgetService / ReportService facades (Lab 7)
 data/seed.json       - test data
 tests/test_lab1.py   - tests for Lab 1
 tests/test_lab2.py   - tests for Lab 2
@@ -38,6 +40,7 @@ tests/test_lab3.py   - tests for Lab 3
 tests/test_lab4.py   - tests for Lab 4
 tests/test_lab5.py   - tests for Lab 5
 tests/test_lab6.py   - tests for Lab 6
+tests/test_lab7.py   - tests for Lab 7
 ```
 
 ## Lab 1 - Pure Functions, Immutability, HOF
@@ -135,6 +138,26 @@ never change anything in place. Only the bus keeps the current state.
 In **Async/FRP**, pick an account, category and amount, then publish a
 `TRANSACTION_ADDED`, `BUDGET_ALERT` or `BALANCE_ALERT` event and watch the
 live account balances and alerts update below.
+
+## Lab 7 - Composition / Modularity + OOP Integration
+
+Menu: **Functional Core** (compose/pipe), **Reports** (service facades)
+
+| Function | What it does |
+|---|---|
+| `compose(*funcs)` | Chains functions right to left: `compose(f, g)(x) == f(g(x))` |
+| `pipe(x, *funcs)` | Chains functions left to right: `pipe(x, f, g) == g(f(x))` |
+| `BudgetService(validators, calculators)` | Facade: pipes injected pure steps into `monthly_report(month)` |
+| `ReportService(aggregators)` | Facade: pipes injected pure steps into `category_report(cat_id)` |
+
+The services do not hold any data themselves - `make_budget_validator`,
+`make_spending_calculator` and `make_category_aggregator` (in
+`core/service.py`) are closures built from the app's data and injected
+into the service through `__init__` (dependency injection).
+
+In **Functional Core**, pick an amount to see `compose` and `pipe` give
+the same result for the same function order. In **Reports**, pick a
+month or a category to see the service pipeline and its steps.
 
 ## Team
 
