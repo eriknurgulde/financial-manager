@@ -1,34 +1,13 @@
-"""Immutable domain entities.
-
-Every entity is a frozen dataclass, so an "update" can only ever produce a new
-value - there is no way to mutate an existing one. That property is what lets
-the rest of `core` stay purely functional: a function can accept a
-``tuple[Transaction, ...]`` and be certain nobody, anywhere, can change it
-underneath.
-
-Money is stored as an ``int`` in minor units (tiins for KZT) to avoid the
-rounding drift that floats introduce when you sum thousands of transactions.
-Income is positive, expense is negative.
-"""
-
-from __future__ import annotations
+# Data models of the app.
+# frozen=True makes every object read-only: after it is created,
+# nobody can change its fields. This is the "immutable data" rule.
 
 from dataclasses import dataclass
-from typing import Literal
-
-CategoryType = Literal["income", "expense"]
-BudgetPeriod = Literal["month", "week"]
-
-#: Event names published by the application (used from Lab 6 onwards).
-TRANSACTION_ADDED = "TRANSACTION_ADDED"
-OVER_BUDGET = "OVER_BUDGET"
-BALANCE_ALERT = "BALANCE_ALERT"
 
 
 @dataclass(frozen=True)
 class Account:
-    """A place where money sits: a card, a cash wallet, a savings account."""
-
+    # A bank card or a wallet. balance is the start money in tenge.
     id: str
     name: str
     balance: int
@@ -37,22 +16,19 @@ class Account:
 
 @dataclass(frozen=True)
 class Category:
-    """A node in the category tree.
-
-    ``parent_id is None`` marks a root category. The hierarchy itself is walked
-    recursively in Lab 2; here it is only data.
-    """
-
+    # A group of spending, like "Food".
+    # parent_id is None for a main category, or the id of its parent.
+    # type is "income" or "expense".
     id: str
     name: str
     parent_id: str | None
-    type: CategoryType
+    type: str
 
 
 @dataclass(frozen=True)
 class Transaction:
-    """A single money movement. Income is ``amount > 0``, expense ``amount < 0``."""
-
+    # One money operation.
+    # amount > 0 means income, amount < 0 means expense.
     id: str
     account_id: str
     cat_id: str
@@ -63,37 +39,17 @@ class Transaction:
 
 @dataclass(frozen=True)
 class Budget:
-    """A spending limit for one category over one period.
-
-    ``limit`` is a positive number: it is compared against the *magnitude* of
-    the expenses in that category.
-    """
-
+    # A spending limit for one category. period is "month" or "week".
     id: str
     cat_id: str
     limit: int
-    period: BudgetPeriod
+    period: str
 
 
 @dataclass(frozen=True)
 class Event:
-    """Something worth reacting to. Consumed by the event bus in Lab 6."""
-
+    # Something that happened in the app (used in later labs).
     id: str
     ts: str
     name: str
     payload: dict
-
-
-__all__ = [
-    "BALANCE_ALERT",
-    "OVER_BUDGET",
-    "TRANSACTION_ADDED",
-    "Account",
-    "Budget",
-    "BudgetPeriod",
-    "Category",
-    "CategoryType",
-    "Event",
-    "Transaction",
-]

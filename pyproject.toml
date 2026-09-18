@@ -1,32 +1,16 @@
-[project]
-name = "financial-manager"
-version = "0.1.0"
-description = "Personal finance manager built in a functional programming style"
-requires-python = ">=3.11"
+# Settings for the tools we use: black (format), ruff (lint), pytest (tests).
 
 [tool.black]
 line-length = 88
-target-version = ["py311"]
 
 [tool.ruff]
 line-length = 88
-target-version = "py311"
 
 [tool.ruff.lint]
-# E,W  - pycodestyle      F   - pyflakes
-# I    - import order     B   - bugbear
-# UP   - pyupgrade        C4  - comprehensions
-# RET  - return style     SIM - simplify
-select = ["E", "W", "F", "I", "B", "UP", "C4", "RET", "SIM"]
-
-[tool.ruff.lint.per-file-ignores]
-# C417 asks us to rewrite map()/filter() as generator expressions. The Lab 1
-# acceptance criteria explicitly require map/filter/reduce, so the rule is
-# switched off for the functional core only - everywhere else it still applies.
-"core/transforms.py" = ["C417"]
+# C417 says "do not use map()". The task asks us to use map/filter/reduce,
+# so we turn this one rule off.
+ignore = ["C417"]
 
 [tool.pytest.ini_options]
-testpaths = ["tests"]
-addopts = "-q"
-# Makes `core` / `app` importable from tests without installing the project.
+# Lets the tests import the "core" folder.
 pythonpath = ["."]
