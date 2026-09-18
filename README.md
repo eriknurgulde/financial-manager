@@ -48,6 +48,6 @@ with subcategories), 114 transactions, 3 budgets.
 
 | Member | GitHub |
 |---|---|
-| Erik Nurgulde | [@eriknurgulde](https://github.com/eriknurgulde) |
+| Yeskendir | [@eriknurgulde](https://github.com/eriknurgulde) |
 | Dimasena | [@Dimasena](https://github.com/Dimasena) |
 | Zhangir | [@zhangir777](https://github.com/zhangir777) |
