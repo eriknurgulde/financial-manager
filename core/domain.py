@@ -48,7 +48,6 @@ class Budget:
 
 @dataclass(frozen=True)
 class Event:
-    # Something that happened in the app (used in later labs).
     id: str
     ts: str
     name: str
