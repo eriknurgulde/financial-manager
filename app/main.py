@@ -21,7 +21,6 @@ from core.transforms import (
     update_budget,
 )
 
-# All menu items required by the task. Labs 2-8 will fill the empty ones.
 MENU = [
     "Overview",
     "Data",
