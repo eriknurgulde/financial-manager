@@ -23,11 +23,13 @@ black --check .
 ## Project structure
 
 ```
-app/main.py         - the web page (menu and screens)
-core/domain.py      - data models (read-only / immutable)
-core/transforms.py  - pure functions for Lab 1
-data/seed.json      - test data
-tests/test_lab1.py  - tests for Lab 1
+app/main.py          - the web page (menu and screens)
+core/domain.py       - data models (read-only / immutable)
+core/transforms.py   - pure functions and closures
+core/recursion.py    - category tree recursion (Lab 2)
+data/seed.json       - test data
+tests/test_lab1.py   - tests for Lab 1
+tests/test_lab2.py   - tests for Lab 2
 ```
 
 ## Lab 1 - Pure Functions, Immutability, HOF
@@ -43,6 +45,23 @@ Menu: **Overview**, **Data**, **Functional Core**
 
 Data in `seed.json`: 3 accounts, 11 categories (Food, Transport, Leisure
 with subcategories), 114 transactions, 3 budgets.
+
+## Lab 2 - Lambda and Closures + Recursion
+
+Menu: **Functional Core** (closures), **Pipelines** (category tree report)
+
+| Function | What it does |
+|---|---|
+| `by_category(cat_id)` | Closure: returns a filter for one category |
+| `by_date_range(start, end)` | Closure: returns a filter for a date range |
+| `by_amount_range(min, max)` | Closure: returns a filter for an amount range |
+| `flatten_categories(cats, root)` | Recursive: root category + all its children |
+| `sum_expenses_recursive(cats, trans, root_id)` | Recursive: total expenses of a category tree |
+
+In **Functional Core**, pick a category and an amount range to see the
+closures filter transactions. In **Pipelines**, pick a root category
+(Food, Transport, Leisure, Income) to see its full tree and total
+expenses.
 
 ## Team
 

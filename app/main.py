@@ -13,9 +13,12 @@ ROOT = Path(__file__).parent.parent
 sys.path.append(str(ROOT))
 
 from core.domain import Transaction
+from core.recursion import flatten_categories, sum_expenses_recursive
 from core.transforms import (
     account_balance,
     add_transaction,
+    by_amount_range,
+    by_category,
     load_seed,
     total_balance,
     update_budget,
@@ -81,6 +84,29 @@ elif page == "Functional Core":
     new_budgets = update_budget(budgets, "b1", int(new_limit))
     st.write(f"Old limit: {budgets[0].limit} KZT")
     st.write(f"New limit: {new_budgets[0].limit} KZT")
+
+    # Lab 2 task: closures demo (by_category, by_amount_range).
+    st.subheader("Closures: filters")
+    cat_id = st.selectbox("Category", [c.id for c in categories])
+    min_a, max_a = st.slider("Amount range", -50000, 50000, (-50000, 50000))
+    cat_filter = by_category(cat_id)
+    amount_filter = by_amount_range(min_a, max_a)
+    found = [t for t in transactions if cat_filter(t) and amount_filter(t)]
+    st.write(f"Transactions found: {len(found)}")
+
+elif page == "Pipelines":
+    # Lab 2 task: expense report based on the category hierarchy.
+    st.title("Pipelines")
+    st.subheader("Category hierarchy report")
+
+    roots = [c.id for c in categories if c.parent_id is None]
+    root = st.selectbox("Root category", roots)
+
+    tree = flatten_categories(categories, root)
+    st.write("Categories in this tree:", [c.name for c in tree])
+
+    total = sum_expenses_recursive(categories, transactions, root)
+    st.metric(f"Total expenses in {root}", f"{total} KZT")
 
 else:
     # Menu items for the next labs.
