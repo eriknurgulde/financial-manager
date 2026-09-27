@@ -85,6 +85,7 @@ elif page == "Functional Core":
     st.write(f"Old limit: {budgets[0].limit} KZT")
     st.write(f"New limit: {new_budgets[0].limit} KZT")
 
+    # Lab 2 task: closures demo (by_category, by_amount_range).
     st.subheader("Closures: filters")
     cat_id = st.selectbox("Category", [c.id for c in categories])
     min_a, max_a = st.slider("Amount range", -50000, 50000, (-50000, 50000))
