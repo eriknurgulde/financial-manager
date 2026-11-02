@@ -1,6 +1,7 @@
 # Streamlit web app. Start it from the project folder:
 #     streamlit run app/main.py
 
+import itertools
 import sys
 from dataclasses import asdict
 from pathlib import Path
@@ -14,6 +15,7 @@ sys.path.append(str(ROOT))
 
 from core.domain import Transaction
 from core.ftypes import check_budget, safe_category, validate_transaction
+from core.lazy import iter_transactions, lazy_top_categories
 from core.memo import measure_forecast
 from core.recursion import flatten_categories, sum_expenses_recursive
 from core.transforms import (
@@ -121,6 +123,26 @@ elif page == "Pipelines":
     total = sum_expenses_recursive(categories, transactions, root)
     st.metric(f"Total expenses in {root}", f"{total} KZT")
 
+    st.subheader("Lazy stream of transactions")
+    # iter_transactions is a generator: it yields matching transactions one
+    # by one instead of building a full list. We simulate a "large stream"
+    # by cycling the seed transactions repeat_by times, and only count how
+    # many match - the stream is never fully materialized in memory.
+    max_amount = st.slider("Only expenses smaller than", -50000, 0, -1000)
+    repeat_by = st.number_input(
+        "Repeat the seed data this many times (simulates a large stream)",
+        min_value=1,
+        value=100,
+        step=50,
+    )
+    big_stream = itertools.chain.from_iterable(
+        itertools.repeat(transactions, int(repeat_by))
+    )
+    matching = iter_transactions(big_stream, lambda t: t.amount <= max_amount)
+    count = sum(1 for _ in matching)
+    st.write(f"Stream size: {len(transactions) * int(repeat_by)} transactions")
+    st.write(f"Matching transactions found: {count}")
+
 elif page == "Reports":
     # Lab 3 task: memoized expense forecast with a cache speed demo.
     st.title("Reports")
@@ -149,6 +171,16 @@ elif page == "Reports":
         st.success(f"Transaction {t_id} is valid")
     else:
         st.error(f"Transaction {t_id} rejected: {result.left}")
+
+    st.subheader("Lazy top categories")
+    # Expenses stream lazily through iter_transactions, then
+    # lazy_top_categories adds them up and yields only the top k.
+    # The full totals dict is the only thing materialized, at the end.
+    k = st.slider("How many top categories", 1, 5, 3)
+    expenses = iter_transactions(transactions, lambda t: t.amount < 0)
+    top = list(lazy_top_categories(expenses, categories, int(k)))
+    for name, spent in top:
+        st.write(f"{name}: {spent} KZT")
 
 else:
     # Menu items for the next labs.

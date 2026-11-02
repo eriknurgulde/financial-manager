@@ -29,11 +29,13 @@ core/transforms.py   - pure functions and closures
 core/recursion.py    - category tree recursion (Lab 2)
 core/memo.py          - memoized forecast (Lab 3)
 core/ftypes.py        - Maybe/Either containers (Lab 4)
+core/lazy.py          - generators for lazy evaluation (Lab 5)
 data/seed.json       - test data
 tests/test_lab1.py   - tests for Lab 1
 tests/test_lab2.py   - tests for Lab 2
 tests/test_lab3.py   - tests for Lab 3
 tests/test_lab4.py   - tests for Lab 4
+tests/test_lab5.py   - tests for Lab 5
 ```
 
 ## Lab 1 - Pure Functions, Immutability, HOF
@@ -96,6 +98,21 @@ In **Functional Core**, type a category id to see `safe_category` handle a
 missing category through `Maybe` (no try/except). In **Reports**, pick a
 transaction to run it through the validation pipeline (account exists,
 category is valid, budget not exceeded) and see the `Either` result.
+
+## Lab 5 - Lazy Evaluation
+
+Menu: **Pipelines** (lazy stream demo), **Reports** (lazy top categories)
+
+| Function | What it does |
+|---|---|
+| `iter_transactions(trans, pred)` | Generator: yields transactions matching `pred`, one at a time |
+| `lazy_top_categories(trans, cats, k)` | Generator: streams expenses, yields only the top `k` categories |
+
+In **Pipelines**, pick an amount threshold and a repeat count to build a
+big simulated transaction stream, then see how many match - the stream is
+never turned into a full list. In **Reports**, pick how many top
+categories to show; expenses are streamed through `iter_transactions`
+into `lazy_top_categories`, and the list is only built at the very end.
 
 ## Team
 
