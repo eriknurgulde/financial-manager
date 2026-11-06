@@ -14,6 +14,16 @@ ROOT = Path(__file__).parent.parent
 sys.path.append(str(ROOT))
 
 from core.domain import Transaction
+from core.frp import (
+    BALANCE_ALERT,
+    BUDGET_ALERT,
+    TRANSACTION_ADDED,
+    EventBus,
+    apply_transaction,
+    check_budget_after_transaction,
+    on_balance_alert,
+    on_budget_alert,
+)
 from core.ftypes import check_budget, safe_category, validate_transaction
 from core.lazy import iter_transactions, lazy_top_categories
 from core.memo import measure_forecast
@@ -181,6 +191,62 @@ elif page == "Reports":
     top = list(lazy_top_categories(expenses, categories, int(k)))
     for name, spent in top:
         st.write(f"{name}: {spent} KZT")
+
+elif page == "Async/FRP":
+    # Lab 6 task: event bus with pure subscriber functions.
+    st.title("Async/FRP")
+    st.subheader("Event bus")
+
+    if "bus" not in st.session_state:
+        # First visit: build the bus and subscribe the pure handlers.
+        # session_state keeps this same bus across Streamlit reruns.
+        start_state = {
+            "accounts": accounts,
+            "budgets": budgets,
+            "transactions": transactions,
+            "notifications": (),
+        }
+        bus = EventBus(start_state)
+        bus.subscribe(TRANSACTION_ADDED, apply_transaction)
+        bus.subscribe(TRANSACTION_ADDED, check_budget_after_transaction)
+        bus.subscribe(BUDGET_ALERT, on_budget_alert)
+        bus.subscribe(BALANCE_ALERT, on_balance_alert)
+        st.session_state.bus = bus
+
+    bus = st.session_state.bus
+
+    acc_id = st.selectbox("Account", [a.id for a in accounts], key="frp_acc")
+    cat_id = st.selectbox("Category", [c.id for c in categories], key="frp_cat")
+    amount = st.number_input(
+        "Transaction amount", value=-5000, step=1000, key="frp_amt"
+    )
+
+    col1, col2, col3 = st.columns(3)
+    if col1.button("Publish TRANSACTION_ADDED"):
+        new_t = Transaction(
+            f"t_evt_{len(bus.state['transactions'])}",
+            acc_id,
+            cat_id,
+            int(amount),
+            "2026-09-17",
+            "FRP demo",
+        )
+        bus.publish(TRANSACTION_ADDED, {"transaction": new_t})
+    if col2.button("Publish BUDGET_ALERT"):
+        bus.publish(BUDGET_ALERT, {"message": f"Manual budget alert for {cat_id}"})
+    if col3.button("Publish BALANCE_ALERT"):
+        bus.publish(BALANCE_ALERT, {"message": f"Low balance warning for {acc_id}"})
+
+    st.subheader("Live account balances")
+    for a in bus.state["accounts"]:
+        st.write(f"{a.name}: {a.balance} KZT")
+
+    st.subheader("Live alerts")
+    if bus.state["notifications"]:
+        for n in bus.state["notifications"]:
+            st.write(n)
+    else:
+        st.write("No alerts yet.")
 
 else:
     # Menu items for the next labs.

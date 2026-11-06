@@ -3,6 +3,7 @@
 # nobody can change its fields. This is the "immutable data" rule.
 
 from dataclasses import dataclass
+from typing import NamedTuple
 
 
 @dataclass(frozen=True)
@@ -46,9 +47,9 @@ class Budget:
     period: str
 
 
-@dataclass(frozen=True)
-class Event:
-    id: str
-    ts: str
+class Event(NamedTuple):
+    # Something that happened in the app (used in Lab 6, FRP).
+    # A NamedTuple, not a dataclass, because events are simple and short-lived.
     name: str
+    ts: str
     payload: dict

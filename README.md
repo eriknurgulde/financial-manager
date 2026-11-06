@@ -30,12 +30,14 @@ core/recursion.py    - category tree recursion (Lab 2)
 core/memo.py          - memoized forecast (Lab 3)
 core/ftypes.py        - Maybe/Either containers (Lab 4)
 core/lazy.py          - generators for lazy evaluation (Lab 5)
+core/frp.py            - event bus and pure subscribers (Lab 6)
 data/seed.json       - test data
 tests/test_lab1.py   - tests for Lab 1
 tests/test_lab2.py   - tests for Lab 2
 tests/test_lab3.py   - tests for Lab 3
 tests/test_lab4.py   - tests for Lab 4
 tests/test_lab5.py   - tests for Lab 5
+tests/test_lab6.py   - tests for Lab 6
 ```
 
 ## Lab 1 - Pure Functions, Immutability, HOF
@@ -113,6 +115,26 @@ big simulated transaction stream, then see how many match - the stream is
 never turned into a full list. In **Reports**, pick how many top
 categories to show; expenses are streamed through `iter_transactions`
 into `lazy_top_categories`, and the list is only built at the very end.
+
+## Lab 6 - FRP / Event Processing
+
+Menu: **Async/FRP**
+
+| Function | What it does |
+|---|---|
+| `Event(name, ts, payload)` | NamedTuple: one thing that happened in the app |
+| `EventBus.subscribe(name, handler)` | Registers a pure handler for an event name |
+| `EventBus.publish(name, payload)` | Builds an `Event` and runs its handlers |
+| `apply_transaction(event, state)` | Adds a transaction and updates the account balance |
+| `check_budget_after_transaction(event, state)` | Adds a notification if the budget was exceeded |
+| `on_budget_alert` / `on_balance_alert` | Turn an alert event into a notification |
+
+Handlers are pure: they take `(event, state)` and return a new state, they
+never change anything in place. Only the bus keeps the current state.
+
+In **Async/FRP**, pick an account, category and amount, then publish a
+`TRANSACTION_ADDED`, `BUDGET_ALERT` or `BALANCE_ALERT` event and watch the
+live account balances and alerts update below.
 
 ## Team
 
