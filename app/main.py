@@ -13,6 +13,7 @@ import streamlit as st
 ROOT = Path(__file__).parent.parent
 sys.path.append(str(ROOT))
 
+from core.compose import compose, pipe
 from core.domain import Transaction
 from core.frp import (
     BALANCE_ALERT,
@@ -28,6 +29,13 @@ from core.ftypes import check_budget, safe_category, validate_transaction
 from core.lazy import iter_transactions, lazy_top_categories
 from core.memo import measure_forecast
 from core.recursion import flatten_categories, sum_expenses_recursive
+from core.service import (
+    BudgetService,
+    ReportService,
+    make_budget_validator,
+    make_category_aggregator,
+    make_spending_calculator,
+)
 from core.transforms import (
     account_balance,
     add_transaction,
@@ -119,6 +127,17 @@ elif page == "Functional Core":
     )
     st.write(f"Category name: {cat_name}")
 
+    st.subheader("compose / pipe")
+    # Two small functions, chained with compose (right to left) and
+    # pipe (left to right). Both give the same result for the same order.
+    to_positive = abs
+    double = lambda x: x * 2
+    demo_amount = st.number_input("Amount to transform", value=-5000, step=500)
+    composed = compose(double, to_positive)(int(demo_amount))
+    piped = pipe(int(demo_amount), to_positive, double)
+    st.write(f"compose(double, abs)({int(demo_amount)}) = {composed}")
+    st.write(f"pipe({int(demo_amount)}, abs, double) = {piped}")
+
 elif page == "Pipelines":
     # Lab 2 task: expense report based on the category hierarchy.
     st.title("Pipelines")
@@ -191,6 +210,31 @@ elif page == "Reports":
     top = list(lazy_top_categories(expenses, categories, int(k)))
     for name, spent in top:
         st.write(f"{name}: {spent} KZT")
+
+    st.subheader("Budget report (composed)")
+    # BudgetService pipes a validator and a calculator (both pure,
+    # injected in __init__) through the month, and shows each step.
+    months = sorted({t.ts[:7] for t in transactions})
+    month = st.selectbox("Month", months, key="budget_month")
+    budget_service = BudgetService(
+        validators=[make_budget_validator(budgets, transactions)],
+        calculators=[make_spending_calculator(transactions)],
+    )
+    budget_report = budget_service.monthly_report(month)
+    st.write("Steps:", budget_report["steps"])
+    st.write("Spending per category:", budget_report["spending"])
+    st.write("Budgets checked:", budget_report["budgets_checked"])
+
+    st.subheader("Category report (composed)")
+    # ReportService pipes one aggregator (also pure and injected) over
+    # the picked category.
+    report_cat_id = st.selectbox(
+        "Category", [c.id for c in categories], key="report_service_cat"
+    )
+    report_service = ReportService(aggregators=[make_category_aggregator(transactions)])
+    cat_report = report_service.category_report(report_cat_id)
+    st.write("Steps:", cat_report["steps"])
+    st.write(f"Total: {cat_report['total']} KZT, count: {cat_report['count']}")
 
 elif page == "Async/FRP":
     # Lab 6 task: event bus with pure subscriber functions.
