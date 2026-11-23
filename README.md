@@ -7,7 +7,7 @@ transactions and budgets. Written in Python in a functional style.
 
 ```bash
 python -m venv .venv
-.venv\Scriptsctivate        # on Mac/Linux: source .venv/bin/activate
+.venv\Scripts\activate        # on Mac/Linux: source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
