@@ -9,7 +9,8 @@ transactions and budgets. Written in Python in a functional style.
 python -m venv .venv
 .venv\Scripts\activate        # on Mac/Linux: source .venv/bin/activate
 pip install -r requirements.txt
-streamlit run app/main.py
+streamlit run app/main.py      # old Streamlit version
+uvicorn api.main:app --port 8600   # new website, open http://localhost:8600
 ```
 
 ## How to check the code
@@ -23,7 +24,9 @@ black --check .
 ## Project structure
 
 ```
-app/main.py          - the web page (menu and screens)
+app/main.py          - old Streamlit pages
+api/main.py          - FastAPI: JSON endpoints over core/ and the site
+web/                 - the site (index.html, style.css, app.js, no build step)
 core/domain.py       - data models (read-only / immutable)
 core/transforms.py   - pure functions and closures
 core/recursion.py    - category tree recursion (Lab 2)
