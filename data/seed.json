@@ -3,19 +3,19 @@
     {
       "id": "acc1",
       "name": "Kaspi Gold",
-      "balance": 150000,
+      "balance": 120000,
       "currency": "KZT"
     },
     {
       "id": "acc2",
       "name": "Halyk Card",
-      "balance": 80000,
+      "balance": 150000,
       "currency": "KZT"
     },
     {
       "id": "acc3",
       "name": "Cash",
-      "balance": 20000,
+      "balance": 25000,
       "currency": "KZT"
     }
   ],
@@ -75,6 +75,42 @@
       "type": "expense"
     },
     {
+      "id": "subscriptions",
+      "name": "Subscriptions",
+      "parent_id": "leisure",
+      "type": "expense"
+    },
+    {
+      "id": "housing",
+      "name": "Housing",
+      "parent_id": null,
+      "type": "expense"
+    },
+    {
+      "id": "rent",
+      "name": "Rent",
+      "parent_id": "housing",
+      "type": "expense"
+    },
+    {
+      "id": "utilities",
+      "name": "Utilities",
+      "parent_id": "housing",
+      "type": "expense"
+    },
+    {
+      "id": "health",
+      "name": "Health",
+      "parent_id": null,
+      "type": "expense"
+    },
+    {
+      "id": "pharmacy",
+      "name": "Pharmacy",
+      "parent_id": "health",
+      "type": "expense"
+    },
+    {
       "id": "income",
       "name": "Income",
       "parent_id": null,
@@ -85,939 +121,1365 @@
       "name": "Salary",
       "parent_id": "income",
       "type": "income"
+    },
+    {
+      "id": "freelance",
+      "name": "Freelance",
+      "parent_id": "income",
+      "type": "income"
     }
   ],
   "transactions": [
     {
       "id": "t1",
-      "account_id": "acc3",
-      "cat_id": "groceries",
-      "amount": -5935,
-      "ts": "2026-06-01",
-      "note": "Groceries"
+      "account_id": "acc1",
+      "cat_id": "cafe",
+      "amount": -4640,
+      "ts": "2026-07-01",
+      "note": "Coffee"
     },
     {
       "id": "t2",
-      "account_id": "acc3",
-      "cat_id": "groceries",
-      "amount": -1581,
-      "ts": "2026-06-01",
-      "note": "Groceries"
+      "account_id": "acc1",
+      "cat_id": "taxi",
+      "amount": -4310,
+      "ts": "2026-07-01",
+      "note": "Taxi ride"
     },
     {
       "id": "t3",
       "account_id": "acc3",
-      "cat_id": "cinema",
-      "amount": -3453,
-      "ts": "2026-06-02",
-      "note": "Cinema"
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-07-03",
+      "note": "Bus fare"
     },
     {
       "id": "t4",
       "account_id": "acc1",
       "cat_id": "groceries",
-      "amount": -2890,
-      "ts": "2026-06-03",
-      "note": "Groceries"
+      "amount": -15160,
+      "ts": "2026-07-04",
+      "note": "Supermarket"
     },
     {
       "id": "t5",
-      "account_id": "acc2",
-      "cat_id": "bus",
-      "amount": -253,
-      "ts": "2026-06-03",
-      "note": "Bus"
+      "account_id": "acc1",
+      "cat_id": "salary",
+      "amount": 350000,
+      "ts": "2026-07-05",
+      "note": "Monthly salary"
     },
     {
       "id": "t6",
       "account_id": "acc1",
-      "cat_id": "salary",
-      "amount": 400000,
-      "ts": "2026-06-05",
-      "note": "Salary"
+      "cat_id": "rent",
+      "amount": -160000,
+      "ts": "2026-07-06",
+      "note": "Apartment rent"
     },
     {
       "id": "t7",
-      "account_id": "acc3",
-      "cat_id": "cinema",
-      "amount": -4964,
-      "ts": "2026-06-06",
-      "note": "Cinema"
+      "account_id": "acc2",
+      "cat_id": "groceries",
+      "amount": -8690,
+      "ts": "2026-07-08",
+      "note": "Supermarket"
     },
     {
       "id": "t8",
       "account_id": "acc1",
-      "cat_id": "taxi",
-      "amount": -2042,
-      "ts": "2026-06-06",
-      "note": "Taxi"
+      "cat_id": "cafe",
+      "amount": -1910,
+      "ts": "2026-07-08",
+      "note": "Lunch"
     },
     {
       "id": "t9",
-      "account_id": "acc1",
-      "cat_id": "cinema",
-      "amount": -2083,
-      "ts": "2026-06-08",
-      "note": "Cinema"
+      "account_id": "acc3",
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-07-09",
+      "note": "Bus fare"
     },
     {
       "id": "t10",
-      "account_id": "acc2",
-      "cat_id": "cafe",
-      "amount": -2061,
-      "ts": "2026-06-08",
-      "note": "Cafe"
+      "account_id": "acc1",
+      "cat_id": "utilities",
+      "amount": -17500,
+      "ts": "2026-07-10",
+      "note": "Electricity, water, heating"
     },
     {
       "id": "t11",
       "account_id": "acc1",
-      "cat_id": "cafe",
-      "amount": -6058,
-      "ts": "2026-06-09",
-      "note": "Cafe"
+      "cat_id": "groceries",
+      "amount": -10300,
+      "ts": "2026-07-11",
+      "note": "Supermarket"
     },
     {
       "id": "t12",
-      "account_id": "acc2",
-      "cat_id": "cafe",
-      "amount": -4421,
-      "ts": "2026-06-09",
-      "note": "Cafe"
+      "account_id": "acc3",
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-07-12",
+      "note": "Bus fare"
     },
     {
       "id": "t13",
-      "account_id": "acc1",
+      "account_id": "acc3",
       "cat_id": "bus",
-      "amount": -300,
-      "ts": "2026-06-09",
-      "note": "Bus"
+      "amount": -200,
+      "ts": "2026-07-13",
+      "note": "Bus fare"
     },
     {
       "id": "t14",
-      "account_id": "acc3",
-      "cat_id": "cinema",
-      "amount": -4099,
-      "ts": "2026-06-13",
-      "note": "Cinema"
+      "account_id": "acc2",
+      "cat_id": "subscriptions",
+      "amount": -2200,
+      "ts": "2026-07-15",
+      "note": "Music subscription"
     },
     {
       "id": "t15",
-      "account_id": "acc2",
-      "cat_id": "bus",
-      "amount": -143,
-      "ts": "2026-06-13",
-      "note": "Bus"
+      "account_id": "acc1",
+      "cat_id": "cafe",
+      "amount": -2060,
+      "ts": "2026-07-15",
+      "note": "Dinner with friends"
     },
     {
       "id": "t16",
       "account_id": "acc1",
-      "cat_id": "groceries",
-      "amount": -8267,
-      "ts": "2026-06-14",
-      "note": "Groceries"
+      "cat_id": "taxi",
+      "amount": -3400,
+      "ts": "2026-07-15",
+      "note": "Taxi ride"
     },
     {
       "id": "t17",
       "account_id": "acc2",
-      "cat_id": "cafe",
-      "amount": -6447,
-      "ts": "2026-06-14",
-      "note": "Cafe"
+      "cat_id": "subscriptions",
+      "amount": -4500,
+      "ts": "2026-07-16",
+      "note": "Video streaming"
     },
     {
       "id": "t18",
-      "account_id": "acc1",
+      "account_id": "acc3",
       "cat_id": "groceries",
-      "amount": -7677,
-      "ts": "2026-06-15",
-      "note": "Groceries"
+      "amount": -2960,
+      "ts": "2026-07-17",
+      "note": "Local market"
     },
     {
       "id": "t19",
-      "account_id": "acc2",
-      "cat_id": "cinema",
-      "amount": -2441,
-      "ts": "2026-06-15",
-      "note": "Cinema"
+      "account_id": "acc3",
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-07-17",
+      "note": "Bus fare"
     },
     {
       "id": "t20",
       "account_id": "acc1",
       "cat_id": "cafe",
-      "amount": -3977,
-      "ts": "2026-06-15",
-      "note": "Cafe"
+      "amount": -2970,
+      "ts": "2026-07-19",
+      "note": "Lunch"
     },
     {
       "id": "t21",
       "account_id": "acc1",
-      "cat_id": "bus",
-      "amount": -178,
-      "ts": "2026-06-16",
-      "note": "Bus"
+      "cat_id": "groceries",
+      "amount": -11600,
+      "ts": "2026-07-21",
+      "note": "Supermarket"
     },
     {
       "id": "t22",
-      "account_id": "acc1",
-      "cat_id": "games",
-      "amount": -10174,
-      "ts": "2026-06-17",
-      "note": "Games"
+      "account_id": "acc3",
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-07-21",
+      "note": "Bus fare"
     },
     {
       "id": "t23",
       "account_id": "acc1",
-      "cat_id": "cafe",
-      "amount": -6838,
-      "ts": "2026-06-18",
-      "note": "Cafe"
+      "cat_id": "taxi",
+      "amount": -2870,
+      "ts": "2026-07-22",
+      "note": "Taxi ride"
     },
     {
       "id": "t24",
       "account_id": "acc3",
       "cat_id": "bus",
-      "amount": -264,
-      "ts": "2026-06-21",
-      "note": "Bus"
+      "amount": -200,
+      "ts": "2026-07-24",
+      "note": "Bus fare"
     },
     {
       "id": "t25",
       "account_id": "acc2",
       "cat_id": "cinema",
-      "amount": -3090,
-      "ts": "2026-06-23",
-      "note": "Cinema"
+      "amount": -4370,
+      "ts": "2026-07-24",
+      "note": "Cinema tickets"
     },
     {
       "id": "t26",
-      "account_id": "acc2",
-      "cat_id": "taxi",
-      "amount": -2751,
-      "ts": "2026-06-24",
-      "note": "Taxi"
+      "account_id": "acc1",
+      "cat_id": "cafe",
+      "amount": -2000,
+      "ts": "2026-07-25",
+      "note": "Coffee"
     },
     {
       "id": "t27",
       "account_id": "acc2",
-      "cat_id": "cinema",
-      "amount": -4553,
-      "ts": "2026-06-25",
-      "note": "Cinema"
+      "cat_id": "groceries",
+      "amount": -8020,
+      "ts": "2026-07-26",
+      "note": "Supermarket"
     },
     {
       "id": "t28",
-      "account_id": "acc2",
-      "cat_id": "groceries",
-      "amount": -7451,
-      "ts": "2026-06-26",
-      "note": "Groceries"
+      "account_id": "acc1",
+      "cat_id": "taxi",
+      "amount": -3830,
+      "ts": "2026-07-27",
+      "note": "Taxi ride"
     },
     {
       "id": "t29",
-      "account_id": "acc2",
-      "cat_id": "taxi",
-      "amount": -2943,
-      "ts": "2026-06-27",
-      "note": "Taxi"
+      "account_id": "acc3",
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-07-27",
+      "note": "Bus fare"
     },
     {
       "id": "t30",
-      "account_id": "acc2",
-      "cat_id": "taxi",
-      "amount": -1066,
-      "ts": "2026-06-27",
-      "note": "Taxi"
+      "account_id": "acc1",
+      "cat_id": "groceries",
+      "amount": -13690,
+      "ts": "2026-07-28",
+      "note": "Supermarket"
     },
     {
       "id": "t31",
-      "account_id": "acc1",
-      "cat_id": "cinema",
-      "amount": -4210,
-      "ts": "2026-07-01",
-      "note": "Cinema"
+      "account_id": "acc3",
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-08-01",
+      "note": "Bus fare"
     },
     {
       "id": "t32",
-      "account_id": "acc3",
+      "account_id": "acc2",
       "cat_id": "cinema",
-      "amount": -4735,
-      "ts": "2026-07-02",
-      "note": "Cinema"
+      "amount": -4830,
+      "ts": "2026-08-02",
+      "note": "Cinema tickets"
     },
     {
       "id": "t33",
       "account_id": "acc1",
-      "cat_id": "salary",
-      "amount": 400000,
-      "ts": "2026-07-05",
-      "note": "Salary"
+      "cat_id": "groceries",
+      "amount": -14970,
+      "ts": "2026-08-03",
+      "note": "Supermarket"
     },
     {
       "id": "t34",
-      "account_id": "acc2",
-      "cat_id": "games",
-      "amount": -10088,
-      "ts": "2026-07-06",
-      "note": "Games"
+      "account_id": "acc1",
+      "cat_id": "cafe",
+      "amount": -4330,
+      "ts": "2026-08-03",
+      "note": "Coffee"
     },
     {
       "id": "t35",
-      "account_id": "acc3",
-      "cat_id": "groceries",
-      "amount": -4948,
-      "ts": "2026-07-08",
-      "note": "Groceries"
+      "account_id": "acc1",
+      "cat_id": "salary",
+      "amount": 350000,
+      "ts": "2026-08-05",
+      "note": "Monthly salary"
     },
     {
       "id": "t36",
       "account_id": "acc2",
-      "cat_id": "games",
-      "amount": -11111,
-      "ts": "2026-07-08",
-      "note": "Games"
+      "cat_id": "groceries",
+      "amount": -8910,
+      "ts": "2026-08-05",
+      "note": "Supermarket"
     },
     {
       "id": "t37",
-      "account_id": "acc1",
-      "cat_id": "taxi",
-      "amount": -1456,
-      "ts": "2026-07-09",
-      "note": "Taxi"
+      "account_id": "acc3",
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-08-05",
+      "note": "Bus fare"
     },
     {
       "id": "t38",
-      "account_id": "acc2",
-      "cat_id": "cafe",
-      "amount": -6916,
-      "ts": "2026-07-09",
-      "note": "Cafe"
+      "account_id": "acc1",
+      "cat_id": "rent",
+      "amount": -160000,
+      "ts": "2026-08-06",
+      "note": "Apartment rent"
     },
     {
       "id": "t39",
-      "account_id": "acc2",
+      "account_id": "acc3",
       "cat_id": "bus",
-      "amount": -250,
-      "ts": "2026-07-10",
-      "note": "Bus"
+      "amount": -200,
+      "ts": "2026-08-08",
+      "note": "Bus fare"
     },
     {
       "id": "t40",
       "account_id": "acc1",
-      "cat_id": "cafe",
-      "amount": -4018,
-      "ts": "2026-07-10",
-      "note": "Cafe"
+      "cat_id": "utilities",
+      "amount": -16800,
+      "ts": "2026-08-10",
+      "note": "Electricity, water, heating"
     },
     {
       "id": "t41",
-      "account_id": "acc2",
-      "cat_id": "cinema",
-      "amount": -2872,
-      "ts": "2026-07-11",
-      "note": "Cinema"
+      "account_id": "acc1",
+      "cat_id": "groceries",
+      "amount": -9160,
+      "ts": "2026-08-10",
+      "note": "Supermarket"
     },
     {
       "id": "t42",
-      "account_id": "acc3",
-      "cat_id": "taxi",
-      "amount": -1940,
-      "ts": "2026-07-11",
-      "note": "Taxi"
+      "account_id": "acc2",
+      "cat_id": "games",
+      "amount": -12990,
+      "ts": "2026-08-12",
+      "note": "Game purchase"
     },
     {
       "id": "t43",
       "account_id": "acc1",
-      "cat_id": "bus",
-      "amount": -273,
-      "ts": "2026-07-12",
-      "note": "Bus"
+      "cat_id": "cafe",
+      "amount": -4050,
+      "ts": "2026-08-13",
+      "note": "Lunch"
     },
     {
       "id": "t44",
-      "account_id": "acc3",
-      "cat_id": "cinema",
-      "amount": -3408,
-      "ts": "2026-07-13",
-      "note": "Cinema"
+      "account_id": "acc1",
+      "cat_id": "cafe",
+      "amount": -2090,
+      "ts": "2026-08-14",
+      "note": "Dinner with friends"
     },
     {
       "id": "t45",
       "account_id": "acc2",
-      "cat_id": "taxi",
-      "amount": -868,
-      "ts": "2026-07-13",
-      "note": "Taxi"
+      "cat_id": "subscriptions",
+      "amount": -2200,
+      "ts": "2026-08-15",
+      "note": "Music subscription"
     },
     {
       "id": "t46",
-      "account_id": "acc1",
-      "cat_id": "cafe",
-      "amount": -5941,
-      "ts": "2026-07-14",
-      "note": "Cafe"
+      "account_id": "acc3",
+      "cat_id": "groceries",
+      "amount": -1560,
+      "ts": "2026-08-15",
+      "note": "Local market"
     },
     {
       "id": "t47",
-      "account_id": "acc3",
-      "cat_id": "taxi",
-      "amount": -1733,
-      "ts": "2026-07-14",
-      "note": "Taxi"
+      "account_id": "acc1",
+      "cat_id": "cafe",
+      "amount": -3670,
+      "ts": "2026-08-15",
+      "note": "Lunch"
     },
     {
       "id": "t48",
       "account_id": "acc2",
-      "cat_id": "groceries",
-      "amount": -4535,
-      "ts": "2026-07-17",
-      "note": "Groceries"
+      "cat_id": "subscriptions",
+      "amount": -4500,
+      "ts": "2026-08-16",
+      "note": "Video streaming"
     },
     {
       "id": "t49",
-      "account_id": "acc2",
-      "cat_id": "taxi",
-      "amount": -2686,
-      "ts": "2026-07-17",
-      "note": "Taxi"
+      "account_id": "acc3",
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-08-16",
+      "note": "Bus fare"
     },
     {
       "id": "t50",
       "account_id": "acc3",
       "cat_id": "bus",
-      "amount": -107,
-      "ts": "2026-07-17",
-      "note": "Bus"
+      "amount": -200,
+      "ts": "2026-08-17",
+      "note": "Bus fare"
     },
     {
       "id": "t51",
-      "account_id": "acc3",
-      "cat_id": "cafe",
-      "amount": -3480,
-      "ts": "2026-07-18",
-      "note": "Cafe"
+      "account_id": "acc1",
+      "cat_id": "groceries",
+      "amount": -14680,
+      "ts": "2026-08-18",
+      "note": "Supermarket"
     },
     {
       "id": "t52",
       "account_id": "acc1",
-      "cat_id": "games",
-      "amount": -8200,
-      "ts": "2026-07-19",
-      "note": "Games"
+      "cat_id": "cafe",
+      "amount": -4090,
+      "ts": "2026-08-19",
+      "note": "Coffee"
     },
     {
       "id": "t53",
-      "account_id": "acc1",
-      "cat_id": "cinema",
-      "amount": -2567,
-      "ts": "2026-07-19",
-      "note": "Cinema"
+      "account_id": "acc3",
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-08-19",
+      "note": "Bus fare"
     },
     {
       "id": "t54",
-      "account_id": "acc3",
-      "cat_id": "cinema",
-      "amount": -4115,
-      "ts": "2026-07-21",
-      "note": "Cinema"
+      "account_id": "acc1",
+      "cat_id": "taxi",
+      "amount": -4310,
+      "ts": "2026-08-20",
+      "note": "Taxi ride"
     },
     {
       "id": "t55",
       "account_id": "acc2",
-      "cat_id": "groceries",
-      "amount": -1824,
-      "ts": "2026-07-21",
-      "note": "Groceries"
+      "cat_id": "freelance",
+      "amount": 85000,
+      "ts": "2026-08-22",
+      "note": "Website design project"
     },
     {
       "id": "t56",
       "account_id": "acc2",
-      "cat_id": "taxi",
-      "amount": -1906,
-      "ts": "2026-07-22",
-      "note": "Taxi"
+      "cat_id": "pharmacy",
+      "amount": -6400,
+      "ts": "2026-08-22",
+      "note": "Pharmacy"
     },
     {
       "id": "t57",
-      "account_id": "acc1",
-      "cat_id": "cafe",
-      "amount": -3159,
-      "ts": "2026-07-25",
-      "note": "Cafe"
+      "account_id": "acc2",
+      "cat_id": "groceries",
+      "amount": -6770,
+      "ts": "2026-08-25",
+      "note": "Supermarket"
     },
     {
       "id": "t58",
       "account_id": "acc1",
-      "cat_id": "bus",
-      "amount": -187,
-      "ts": "2026-07-27",
-      "note": "Bus"
+      "cat_id": "taxi",
+      "amount": -3830,
+      "ts": "2026-08-25",
+      "note": "Taxi ride"
     },
     {
       "id": "t59",
-      "account_id": "acc3",
-      "cat_id": "groceries",
-      "amount": -6992,
-      "ts": "2026-08-01",
-      "note": "Groceries"
+      "account_id": "acc1",
+      "cat_id": "taxi",
+      "amount": -3120,
+      "ts": "2026-08-26",
+      "note": "Taxi ride"
     },
     {
       "id": "t60",
       "account_id": "acc3",
-      "cat_id": "groceries",
-      "amount": -2077,
-      "ts": "2026-08-02",
-      "note": "Groceries"
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-08-26",
+      "note": "Bus fare"
     },
     {
       "id": "t61",
-      "account_id": "acc2",
+      "account_id": "acc1",
       "cat_id": "groceries",
-      "amount": -2099,
-      "ts": "2026-08-02",
-      "note": "Groceries"
+      "amount": -9720,
+      "ts": "2026-08-27",
+      "note": "Supermarket"
     },
     {
       "id": "t62",
       "account_id": "acc2",
-      "cat_id": "taxi",
-      "amount": -2782,
-      "ts": "2026-08-03",
-      "note": "Taxi"
+      "cat_id": "cinema",
+      "amount": -3760,
+      "ts": "2026-08-27",
+      "note": "Cinema tickets"
     },
     {
       "id": "t63",
       "account_id": "acc1",
       "cat_id": "taxi",
-      "amount": -1353,
-      "ts": "2026-08-03",
-      "note": "Taxi"
+      "amount": -3950,
+      "ts": "2026-08-28",
+      "note": "Taxi ride"
     },
     {
       "id": "t64",
-      "account_id": "acc1",
-      "cat_id": "groceries",
-      "amount": -4042,
-      "ts": "2026-08-03",
-      "note": "Groceries"
+      "account_id": "acc3",
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-08-28",
+      "note": "Bus fare"
     },
     {
       "id": "t65",
-      "account_id": "acc3",
-      "cat_id": "groceries",
-      "amount": -6949,
-      "ts": "2026-08-03",
-      "note": "Groceries"
+      "account_id": "acc1",
+      "cat_id": "salary",
+      "amount": 350000,
+      "ts": "2026-09-05",
+      "note": "Monthly salary"
     },
     {
       "id": "t66",
-      "account_id": "acc2",
-      "cat_id": "cafe",
-      "amount": -6178,
-      "ts": "2026-08-04",
-      "note": "Cafe"
+      "account_id": "acc1",
+      "cat_id": "groceries",
+      "amount": -14700,
+      "ts": "2026-09-05",
+      "note": "Supermarket"
     },
     {
       "id": "t67",
-      "account_id": "acc3",
-      "cat_id": "cafe",
-      "amount": -6743,
-      "ts": "2026-08-04",
-      "note": "Cafe"
+      "account_id": "acc1",
+      "cat_id": "rent",
+      "amount": -160000,
+      "ts": "2026-09-06",
+      "note": "Apartment rent"
     },
     {
       "id": "t68",
-      "account_id": "acc3",
+      "account_id": "acc1",
       "cat_id": "taxi",
-      "amount": -2806,
-      "ts": "2026-08-04",
-      "note": "Taxi"
+      "amount": -1840,
+      "ts": "2026-09-07",
+      "note": "Taxi ride"
     },
     {
       "id": "t69",
-      "account_id": "acc1",
-      "cat_id": "salary",
-      "amount": 400000,
-      "ts": "2026-08-05",
-      "note": "Salary"
+      "account_id": "acc3",
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-09-07",
+      "note": "Bus fare"
     },
     {
       "id": "t70",
-      "account_id": "acc1",
+      "account_id": "acc2",
       "cat_id": "groceries",
-      "amount": -8672,
-      "ts": "2026-08-05",
-      "note": "Groceries"
+      "amount": -4240,
+      "ts": "2026-09-08",
+      "note": "Supermarket"
     },
     {
       "id": "t71",
       "account_id": "acc1",
-      "cat_id": "cinema",
-      "amount": -2580,
-      "ts": "2026-08-05",
-      "note": "Cinema"
+      "cat_id": "cafe",
+      "amount": -4300,
+      "ts": "2026-09-09",
+      "note": "Coffee"
     },
     {
       "id": "t72",
-      "account_id": "acc3",
-      "cat_id": "groceries",
-      "amount": -7775,
-      "ts": "2026-08-06",
-      "note": "Groceries"
+      "account_id": "acc1",
+      "cat_id": "taxi",
+      "amount": -1960,
+      "ts": "2026-09-09",
+      "note": "Taxi ride"
     },
     {
       "id": "t73",
       "account_id": "acc3",
-      "cat_id": "cinema",
-      "amount": -4872,
-      "ts": "2026-08-06",
-      "note": "Cinema"
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-09-09",
+      "note": "Bus fare"
     },
     {
       "id": "t74",
-      "account_id": "acc3",
-      "cat_id": "groceries",
-      "amount": -7885,
-      "ts": "2026-08-08",
-      "note": "Groceries"
+      "account_id": "acc1",
+      "cat_id": "utilities",
+      "amount": -18200,
+      "ts": "2026-09-10",
+      "note": "Electricity, water, heating"
     },
     {
       "id": "t75",
-      "account_id": "acc3",
+      "account_id": "acc1",
       "cat_id": "cafe",
-      "amount": -4454,
-      "ts": "2026-08-10",
-      "note": "Cafe"
+      "amount": -4810,
+      "ts": "2026-09-10",
+      "note": "Lunch"
     },
     {
       "id": "t76",
-      "account_id": "acc2",
-      "cat_id": "cinema",
-      "amount": -3393,
-      "ts": "2026-08-12",
-      "note": "Cinema"
+      "account_id": "acc1",
+      "cat_id": "taxi",
+      "amount": -2560,
+      "ts": "2026-09-10",
+      "note": "Taxi ride"
     },
     {
       "id": "t77",
-      "account_id": "acc2",
-      "cat_id": "groceries",
-      "amount": -4948,
-      "ts": "2026-08-13",
-      "note": "Groceries"
+      "account_id": "acc1",
+      "cat_id": "cafe",
+      "amount": -4060,
+      "ts": "2026-09-13",
+      "note": "Dinner with friends"
     },
     {
       "id": "t78",
-      "account_id": "acc3",
+      "account_id": "acc1",
       "cat_id": "taxi",
-      "amount": -2342,
-      "ts": "2026-08-13",
-      "note": "Taxi"
+      "amount": -4140,
+      "ts": "2026-09-13",
+      "note": "Taxi ride"
     },
     {
       "id": "t79",
-      "account_id": "acc2",
-      "cat_id": "cinema",
-      "amount": -4700,
-      "ts": "2026-08-15",
-      "note": "Cinema"
+      "account_id": "acc1",
+      "cat_id": "groceries",
+      "amount": -12410,
+      "ts": "2026-09-14",
+      "note": "Supermarket"
     },
     {
       "id": "t80",
-      "account_id": "acc3",
-      "cat_id": "cinema",
-      "amount": -2114,
-      "ts": "2026-08-15",
-      "note": "Cinema"
+      "account_id": "acc1",
+      "cat_id": "taxi",
+      "amount": -4300,
+      "ts": "2026-09-14",
+      "note": "Taxi ride"
     },
     {
       "id": "t81",
-      "account_id": "acc2",
-      "cat_id": "cinema",
-      "amount": -3283,
-      "ts": "2026-08-15",
-      "note": "Cinema"
+      "account_id": "acc3",
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-09-14",
+      "note": "Bus fare"
     },
     {
       "id": "t82",
       "account_id": "acc2",
-      "cat_id": "bus",
-      "amount": -129,
-      "ts": "2026-08-16",
-      "note": "Bus"
+      "cat_id": "subscriptions",
+      "amount": -2200,
+      "ts": "2026-09-15",
+      "note": "Music subscription"
     },
     {
       "id": "t83",
-      "account_id": "acc2",
-      "cat_id": "taxi",
-      "amount": -1331,
-      "ts": "2026-08-16",
-      "note": "Taxi"
+      "account_id": "acc3",
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-09-15",
+      "note": "Bus fare"
     },
     {
       "id": "t84",
-      "account_id": "acc3",
-      "cat_id": "cafe",
-      "amount": -5590,
-      "ts": "2026-08-17",
-      "note": "Cafe"
+      "account_id": "acc2",
+      "cat_id": "subscriptions",
+      "amount": -4500,
+      "ts": "2026-09-16",
+      "note": "Video streaming"
     },
     {
       "id": "t85",
-      "account_id": "acc2",
-      "cat_id": "bus",
-      "amount": -237,
-      "ts": "2026-08-18",
-      "note": "Bus"
+      "account_id": "acc3",
+      "cat_id": "groceries",
+      "amount": -2660,
+      "ts": "2026-09-16",
+      "note": "Local market"
     },
     {
       "id": "t86",
-      "account_id": "acc2",
-      "cat_id": "groceries",
-      "amount": -8870,
-      "ts": "2026-08-20",
-      "note": "Groceries"
+      "account_id": "acc3",
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-09-16",
+      "note": "Bus fare"
     },
     {
       "id": "t87",
-      "account_id": "acc1",
-      "cat_id": "taxi",
-      "amount": -897,
-      "ts": "2026-08-21",
-      "note": "Taxi"
+      "account_id": "acc3",
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-09-17",
+      "note": "Bus fare"
     },
     {
       "id": "t88",
-      "account_id": "acc3",
-      "cat_id": "bus",
-      "amount": -209,
-      "ts": "2026-08-22",
-      "note": "Bus"
+      "account_id": "acc1",
+      "cat_id": "cafe",
+      "amount": -5070,
+      "ts": "2026-09-18",
+      "note": "Lunch"
     },
     {
       "id": "t89",
       "account_id": "acc2",
-      "cat_id": "taxi",
-      "amount": -1988,
-      "ts": "2026-08-23",
-      "note": "Taxi"
+      "cat_id": "cinema",
+      "amount": -3580,
+      "ts": "2026-09-18",
+      "note": "Cinema tickets"
     },
     {
       "id": "t90",
       "account_id": "acc1",
-      "cat_id": "cafe",
-      "amount": -5659,
-      "ts": "2026-08-25",
-      "note": "Cafe"
+      "cat_id": "groceries",
+      "amount": -12900,
+      "ts": "2026-09-20",
+      "note": "Supermarket"
     },
     {
       "id": "t91",
-      "account_id": "acc2",
-      "cat_id": "groceries",
-      "amount": -5045,
-      "ts": "2026-09-01",
-      "note": "Groceries"
+      "account_id": "acc1",
+      "cat_id": "cafe",
+      "amount": -3950,
+      "ts": "2026-09-22",
+      "note": "Coffee"
     },
     {
       "id": "t92",
-      "account_id": "acc3",
-      "cat_id": "taxi",
-      "amount": -2406,
-      "ts": "2026-09-01",
-      "note": "Taxi"
+      "account_id": "acc2",
+      "cat_id": "cinema",
+      "amount": -4240,
+      "ts": "2026-09-22",
+      "note": "Cinema tickets"
     },
     {
       "id": "t93",
-      "account_id": "acc3",
+      "account_id": "acc2",
       "cat_id": "groceries",
-      "amount": -6007,
-      "ts": "2026-09-03",
-      "note": "Groceries"
+      "amount": -7800,
+      "ts": "2026-09-23",
+      "note": "Supermarket"
     },
     {
       "id": "t94",
-      "account_id": "acc2",
-      "cat_id": "cafe",
-      "amount": -6515,
-      "ts": "2026-09-03",
-      "note": "Cafe"
+      "account_id": "acc3",
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-09-23",
+      "note": "Bus fare"
     },
     {
       "id": "t95",
       "account_id": "acc1",
-      "cat_id": "salary",
-      "amount": 400000,
-      "ts": "2026-09-05",
-      "note": "Salary"
+      "cat_id": "groceries",
+      "amount": -13310,
+      "ts": "2026-09-25",
+      "note": "Supermarket"
     },
     {
       "id": "t96",
-      "account_id": "acc1",
-      "cat_id": "groceries",
-      "amount": -7388,
-      "ts": "2026-09-05",
-      "note": "Groceries"
+      "account_id": "acc3",
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-09-25",
+      "note": "Bus fare"
     },
     {
       "id": "t97",
-      "account_id": "acc3",
-      "cat_id": "games",
-      "amount": -12030,
-      "ts": "2026-09-05",
-      "note": "Games"
+      "account_id": "acc1",
+      "cat_id": "taxi",
+      "amount": -3640,
+      "ts": "2026-09-26",
+      "note": "Taxi ride"
     },
     {
       "id": "t98",
-      "account_id": "acc3",
-      "cat_id": "cafe",
-      "amount": -6168,
-      "ts": "2026-09-06",
-      "note": "Cafe"
+      "account_id": "acc2",
+      "cat_id": "cinema",
+      "amount": -4890,
+      "ts": "2026-10-02",
+      "note": "Cinema tickets"
     },
     {
       "id": "t99",
-      "account_id": "acc2",
-      "cat_id": "groceries",
-      "amount": -2311,
-      "ts": "2026-09-07",
-      "note": "Groceries"
+      "account_id": "acc1",
+      "cat_id": "cafe",
+      "amount": -4050,
+      "ts": "2026-10-03",
+      "note": "Coffee"
     },
     {
       "id": "t100",
       "account_id": "acc3",
-      "cat_id": "games",
-      "amount": -9754,
-      "ts": "2026-09-08",
-      "note": "Games"
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-10-03",
+      "note": "Bus fare"
     },
     {
       "id": "t101",
       "account_id": "acc1",
-      "cat_id": "cafe",
-      "amount": -5409,
-      "ts": "2026-09-10",
-      "note": "Cafe"
+      "cat_id": "groceries",
+      "amount": -8650,
+      "ts": "2026-10-04",
+      "note": "Supermarket"
     },
     {
       "id": "t102",
       "account_id": "acc3",
-      "cat_id": "groceries",
-      "amount": -5594,
-      "ts": "2026-09-10",
-      "note": "Groceries"
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-10-04",
+      "note": "Bus fare"
     },
     {
       "id": "t103",
       "account_id": "acc1",
-      "cat_id": "taxi",
-      "amount": -2905,
-      "ts": "2026-09-12",
-      "note": "Taxi"
+      "cat_id": "salary",
+      "amount": 350000,
+      "ts": "2026-10-05",
+      "note": "Monthly salary"
     },
     {
       "id": "t104",
-      "account_id": "acc3",
-      "cat_id": "cafe",
-      "amount": -3417,
-      "ts": "2026-09-14",
-      "note": "Cafe"
+      "account_id": "acc1",
+      "cat_id": "taxi",
+      "amount": -1870,
+      "ts": "2026-10-05",
+      "note": "Taxi ride"
     },
     {
       "id": "t105",
       "account_id": "acc1",
-      "cat_id": "bus",
-      "amount": -222,
-      "ts": "2026-09-19",
-      "note": "Bus"
+      "cat_id": "rent",
+      "amount": -160000,
+      "ts": "2026-10-06",
+      "note": "Apartment rent"
     },
     {
       "id": "t106",
-      "account_id": "acc1",
-      "cat_id": "cafe",
-      "amount": -6033,
-      "ts": "2026-09-19",
-      "note": "Cafe"
+      "account_id": "acc3",
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-10-07",
+      "note": "Bus fare"
     },
     {
       "id": "t107",
-      "account_id": "acc1",
-      "cat_id": "games",
-      "amount": -5019,
-      "ts": "2026-09-20",
-      "note": "Games"
+      "account_id": "acc3",
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-10-08",
+      "note": "Bus fare"
     },
     {
       "id": "t108",
-      "account_id": "acc2",
-      "cat_id": "bus",
-      "amount": -153,
-      "ts": "2026-09-21",
-      "note": "Bus"
+      "account_id": "acc1",
+      "cat_id": "cafe",
+      "amount": -3390,
+      "ts": "2026-10-09",
+      "note": "Lunch"
     },
     {
       "id": "t109",
-      "account_id": "acc1",
+      "account_id": "acc2",
       "cat_id": "games",
-      "amount": -5762,
-      "ts": "2026-09-21",
-      "note": "Games"
+      "amount": -8500,
+      "ts": "2026-10-09",
+      "note": "Game purchase"
     },
     {
       "id": "t110",
       "account_id": "acc1",
-      "cat_id": "groceries",
-      "amount": -4957,
-      "ts": "2026-09-22",
-      "note": "Groceries"
+      "cat_id": "utilities",
+      "amount": -21300,
+      "ts": "2026-10-10",
+      "note": "Electricity, water, heating"
     },
     {
       "id": "t111",
       "account_id": "acc2",
-      "cat_id": "cinema",
-      "amount": -3061,
-      "ts": "2026-09-22",
-      "note": "Cinema"
+      "cat_id": "groceries",
+      "amount": -7630,
+      "ts": "2026-10-11",
+      "note": "Supermarket"
     },
     {
       "id": "t112",
-      "account_id": "acc3",
-      "cat_id": "cafe",
-      "amount": -5495,
-      "ts": "2026-09-23",
-      "note": "Cafe"
+      "account_id": "acc2",
+      "cat_id": "freelance",
+      "amount": 60000,
+      "ts": "2026-10-14",
+      "note": "Logo design project"
     },
     {
       "id": "t113",
-      "account_id": "acc3",
+      "account_id": "acc1",
       "cat_id": "taxi",
-      "amount": -1661,
-      "ts": "2026-09-25",
-      "note": "Taxi"
+      "amount": -2270,
+      "ts": "2026-10-14",
+      "note": "Taxi ride"
     },
     {
       "id": "t114",
+      "account_id": "acc2",
+      "cat_id": "subscriptions",
+      "amount": -2200,
+      "ts": "2026-10-15",
+      "note": "Music subscription"
+    },
+    {
+      "id": "t115",
+      "account_id": "acc1",
+      "cat_id": "groceries",
+      "amount": -15440,
+      "ts": "2026-10-15",
+      "note": "Supermarket"
+    },
+    {
+      "id": "t116",
+      "account_id": "acc1",
+      "cat_id": "taxi",
+      "amount": -1800,
+      "ts": "2026-10-15",
+      "note": "Taxi ride"
+    },
+    {
+      "id": "t117",
+      "account_id": "acc2",
+      "cat_id": "subscriptions",
+      "amount": -4500,
+      "ts": "2026-10-16",
+      "note": "Video streaming"
+    },
+    {
+      "id": "t118",
       "account_id": "acc1",
       "cat_id": "cafe",
-      "amount": -3846,
-      "ts": "2026-09-27",
-      "note": "Cafe"
+      "amount": -1990,
+      "ts": "2026-10-16",
+      "note": "Dinner with friends"
+    },
+    {
+      "id": "t119",
+      "account_id": "acc3",
+      "cat_id": "groceries",
+      "amount": -1960,
+      "ts": "2026-10-17",
+      "note": "Local market"
+    },
+    {
+      "id": "t120",
+      "account_id": "acc3",
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-10-18",
+      "note": "Bus fare"
+    },
+    {
+      "id": "t121",
+      "account_id": "acc2",
+      "cat_id": "pharmacy",
+      "amount": -3900,
+      "ts": "2026-10-18",
+      "note": "Pharmacy"
+    },
+    {
+      "id": "t122",
+      "account_id": "acc3",
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-10-19",
+      "note": "Bus fare"
+    },
+    {
+      "id": "t123",
+      "account_id": "acc3",
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-10-20",
+      "note": "Bus fare"
+    },
+    {
+      "id": "t124",
+      "account_id": "acc1",
+      "cat_id": "cafe",
+      "amount": -2490,
+      "ts": "2026-10-21",
+      "note": "Lunch"
+    },
+    {
+      "id": "t125",
+      "account_id": "acc1",
+      "cat_id": "groceries",
+      "amount": -15900,
+      "ts": "2026-10-23",
+      "note": "Supermarket"
+    },
+    {
+      "id": "t126",
+      "account_id": "acc1",
+      "cat_id": "cafe",
+      "amount": -5320,
+      "ts": "2026-10-24",
+      "note": "Coffee"
+    },
+    {
+      "id": "t127",
+      "account_id": "acc3",
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-10-25",
+      "note": "Bus fare"
+    },
+    {
+      "id": "t128",
+      "account_id": "acc2",
+      "cat_id": "cinema",
+      "amount": -4180,
+      "ts": "2026-10-25",
+      "note": "Cinema tickets"
+    },
+    {
+      "id": "t129",
+      "account_id": "acc2",
+      "cat_id": "groceries",
+      "amount": -7350,
+      "ts": "2026-10-26",
+      "note": "Supermarket"
+    },
+    {
+      "id": "t130",
+      "account_id": "acc1",
+      "cat_id": "groceries",
+      "amount": -14620,
+      "ts": "2026-10-27",
+      "note": "Supermarket"
+    },
+    {
+      "id": "t131",
+      "account_id": "acc1",
+      "cat_id": "taxi",
+      "amount": -4110,
+      "ts": "2026-10-28",
+      "note": "Taxi ride"
+    },
+    {
+      "id": "t132",
+      "account_id": "acc1",
+      "cat_id": "groceries",
+      "amount": -13060,
+      "ts": "2026-11-01",
+      "note": "Supermarket"
+    },
+    {
+      "id": "t133",
+      "account_id": "acc1",
+      "cat_id": "taxi",
+      "amount": -2340,
+      "ts": "2026-11-01",
+      "note": "Taxi ride"
+    },
+    {
+      "id": "t134",
+      "account_id": "acc3",
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-11-01",
+      "note": "Bus fare"
+    },
+    {
+      "id": "t135",
+      "account_id": "acc1",
+      "cat_id": "cafe",
+      "amount": -5500,
+      "ts": "2026-11-03",
+      "note": "Coffee"
+    },
+    {
+      "id": "t136",
+      "account_id": "acc1",
+      "cat_id": "salary",
+      "amount": 350000,
+      "ts": "2026-11-05",
+      "note": "Monthly salary"
+    },
+    {
+      "id": "t137",
+      "account_id": "acc2",
+      "cat_id": "groceries",
+      "amount": -4380,
+      "ts": "2026-11-05",
+      "note": "Supermarket"
+    },
+    {
+      "id": "t138",
+      "account_id": "acc1",
+      "cat_id": "cafe",
+      "amount": -4500,
+      "ts": "2026-11-05",
+      "note": "Lunch"
+    },
+    {
+      "id": "t139",
+      "account_id": "acc1",
+      "cat_id": "rent",
+      "amount": -160000,
+      "ts": "2026-11-06",
+      "note": "Apartment rent"
+    },
+    {
+      "id": "t140",
+      "account_id": "acc1",
+      "cat_id": "cafe",
+      "amount": -7780,
+      "ts": "2026-11-06",
+      "note": "Dinner with friends"
+    },
+    {
+      "id": "t141",
+      "account_id": "acc3",
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-11-06",
+      "note": "Bus fare"
+    },
+    {
+      "id": "t142",
+      "account_id": "acc1",
+      "cat_id": "taxi",
+      "amount": -3790,
+      "ts": "2026-11-07",
+      "note": "Taxi ride"
+    },
+    {
+      "id": "t143",
+      "account_id": "acc1",
+      "cat_id": "utilities",
+      "amount": -26500,
+      "ts": "2026-11-10",
+      "note": "Electricity, water, heating"
+    },
+    {
+      "id": "t144",
+      "account_id": "acc1",
+      "cat_id": "cafe",
+      "amount": -4090,
+      "ts": "2026-11-10",
+      "note": "Lunch"
+    },
+    {
+      "id": "t145",
+      "account_id": "acc2",
+      "cat_id": "cinema",
+      "amount": -4650,
+      "ts": "2026-11-10",
+      "note": "Cinema tickets"
+    },
+    {
+      "id": "t146",
+      "account_id": "acc1",
+      "cat_id": "groceries",
+      "amount": -11580,
+      "ts": "2026-11-11",
+      "note": "Supermarket"
+    },
+    {
+      "id": "t147",
+      "account_id": "acc3",
+      "cat_id": "groceries",
+      "amount": -2070,
+      "ts": "2026-11-12",
+      "note": "Local market"
+    },
+    {
+      "id": "t148",
+      "account_id": "acc3",
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-11-12",
+      "note": "Bus fare"
+    },
+    {
+      "id": "t149",
+      "account_id": "acc1",
+      "cat_id": "taxi",
+      "amount": -2170,
+      "ts": "2026-11-13",
+      "note": "Taxi ride"
+    },
+    {
+      "id": "t150",
+      "account_id": "acc1",
+      "cat_id": "cafe",
+      "amount": -3600,
+      "ts": "2026-11-14",
+      "note": "Coffee"
+    },
+    {
+      "id": "t151",
+      "account_id": "acc2",
+      "cat_id": "pharmacy",
+      "amount": -12800,
+      "ts": "2026-11-14",
+      "note": "Pharmacy (medicine for a cold)"
+    },
+    {
+      "id": "t152",
+      "account_id": "acc2",
+      "cat_id": "subscriptions",
+      "amount": -2200,
+      "ts": "2026-11-15",
+      "note": "Music subscription"
+    },
+    {
+      "id": "t153",
+      "account_id": "acc2",
+      "cat_id": "subscriptions",
+      "amount": -4500,
+      "ts": "2026-11-16",
+      "note": "Video streaming"
+    },
+    {
+      "id": "t154",
+      "account_id": "acc1",
+      "cat_id": "groceries",
+      "amount": -10840,
+      "ts": "2026-11-16",
+      "note": "Supermarket"
+    },
+    {
+      "id": "t155",
+      "account_id": "acc3",
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-11-16",
+      "note": "Bus fare"
+    },
+    {
+      "id": "t156",
+      "account_id": "acc1",
+      "cat_id": "cafe",
+      "amount": -7990,
+      "ts": "2026-11-17",
+      "note": "Lunch"
+    },
+    {
+      "id": "t157",
+      "account_id": "acc1",
+      "cat_id": "taxi",
+      "amount": -2060,
+      "ts": "2026-11-17",
+      "note": "Taxi ride"
+    },
+    {
+      "id": "t158",
+      "account_id": "acc3",
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-11-17",
+      "note": "Bus fare"
+    },
+    {
+      "id": "t159",
+      "account_id": "acc3",
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-11-19",
+      "note": "Bus fare"
+    },
+    {
+      "id": "t160",
+      "account_id": "acc1",
+      "cat_id": "cafe",
+      "amount": -2260,
+      "ts": "2026-11-20",
+      "note": "Dinner with friends"
+    },
+    {
+      "id": "t161",
+      "account_id": "acc2",
+      "cat_id": "groceries",
+      "amount": -4340,
+      "ts": "2026-11-21",
+      "note": "Supermarket"
+    },
+    {
+      "id": "t162",
+      "account_id": "acc3",
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-11-21",
+      "note": "Bus fare"
+    },
+    {
+      "id": "t163",
+      "account_id": "acc1",
+      "cat_id": "groceries",
+      "amount": -15810,
+      "ts": "2026-11-22",
+      "note": "Supermarket"
+    },
+    {
+      "id": "t164",
+      "account_id": "acc3",
+      "cat_id": "bus",
+      "amount": -200,
+      "ts": "2026-11-22",
+      "note": "Bus fare"
+    },
+    {
+      "id": "t165",
+      "account_id": "acc2",
+      "cat_id": "cinema",
+      "amount": -4330,
+      "ts": "2026-11-22",
+      "note": "Cinema tickets"
     }
   ],
   "budgets": [
     {
       "id": "b1",
-      "cat_id": "food",
-      "limit": 100000,
+      "cat_id": "groceries",
+      "limit": 80000,
       "period": "month"
     },
     {
       "id": "b2",
-      "cat_id": "transport",
-      "limit": 30000,
+      "cat_id": "cafe",
+      "limit": 25000,
       "period": "month"
     },
     {
       "id": "b3",
-      "cat_id": "leisure",
-      "limit": 40000,
+      "cat_id": "taxi",
+      "limit": 15000,
+      "period": "month"
+    },
+    {
+      "id": "b4",
+      "cat_id": "cinema",
+      "limit": 10000,
+      "period": "month"
+    },
+    {
+      "id": "b5",
+      "cat_id": "games",
+      "limit": 15000,
       "period": "month"
     }
   ]
