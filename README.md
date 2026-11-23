@@ -34,6 +34,7 @@ core/frp.py            - event bus and pure subscribers (Lab 6)
 core/compose.py        - compose / pipe (Lab 7)
 core/service.py        - BudgetService / ReportService facades (Lab 7)
 core/async_ops.py      - async aggregations and final report (Lab 8)
+core/report.py         - income/expenses, spending and budget reports (Lab 8)
 data/seed.json       - test data
 tests/test_lab1.py   - tests for Lab 1
 tests/test_lab2.py   - tests for Lab 2
@@ -56,8 +57,12 @@ Menu: **Overview**, **Data**, **Functional Core**
 | `update_budget(budgets, bid, new_limit)` | Returns new budgets where one budget has a new limit |
 | `account_balance(trans, acc_id)` | Sums the transactions of one account with `filter`, `map`, `reduce` |
 
-Data in `seed.json`: 3 accounts, 11 categories (Food, Transport, Leisure
-with subcategories), 114 transactions, 3 budgets.
+Data in `seed.json`: 3 accounts (card, card, cash), 18 categories (Food,
+Transport, Leisure, Housing, Health, Income with subcategories), 165
+transactions from July to November 2026 (salary, rent, shopping, taxi and
+so on) and 5 monthly budgets. Money is booked on the subcategories, so the
+budgets are set on them too (Groceries, Cafe, Taxi, Cinema, Games).
+`Account.balance` is the money at the start of the data.
 
 ## Lab 2 - Lambda and Closures + Recursion
 
@@ -99,7 +104,7 @@ Menu: **Functional Core** (Maybe), **Reports** (validation pipeline)
 | `Either.right_of(x)` / `Either.left_of(e)` | Container for a good value or an error, with `map`, `bind`, `get_or_else` |
 | `safe_category(cats, cat_id)` | Looks up a category, returns `Maybe[Category]` |
 | `validate_transaction(t, accs, cats)` | Checks account and category exist, returns `Either[dict, Transaction]` |
-| `check_budget(b, trans)` | Checks a budget is not exceeded, returns `Either[dict, Budget]` |
+| `check_budget(b, trans)` | Checks a budget is not exceeded, returns `Either[dict, Budget]`. A budget is for one month, so pass the transactions of that month |
 
 In **Functional Core**, type a category id to see `safe_category` handle a
 missing category through `Maybe` (no try/except). In **Reports**, pick a
@@ -131,7 +136,8 @@ Menu: **Async/FRP**
 | `EventBus.subscribe(name, handler)` | Registers a pure handler for an event name |
 | `EventBus.publish(name, payload)` | Builds an `Event` and runs its handlers |
 | `apply_transaction(event, state)` | Adds a transaction and updates the account balance |
-| `check_budget_after_transaction(event, state)` | Adds a notification if the budget was exceeded |
+| `check_budget_after_transaction(event, state)` | Adds a notification if the budget of that month was exceeded |
+| `check_balance_after_transaction(event, state)` | Adds a notification if the account balance is below 10000 KZT |
 | `on_budget_alert` / `on_balance_alert` | Turn an alert event into a notification |
 
 Handlers are pure: they take `(event, state)` and return a new state, they
@@ -168,18 +174,23 @@ Menu: **Async/FRP** (parallel totals), **Reports** (final report)
 | Function | What it does |
 |---|---|
 | `expenses_by_month(trans, months)` | async: totals expenses per month, all months run together with `asyncio.gather` |
-| `balance_forecast(accounts, trans)` | async: forecasts each account's balance in parallel |
-| `build_final_report(accounts, categories, trans, budgets)` | End-to-end: lazy filter -> lazy top categories -> cached forecast -> parallel totals -> one report dict |
+| `balance_forecast(accounts, trans)` | async: next month balance of each account (balance now + average monthly change), accounts run in parallel |
+| `build_final_report(accounts, categories, trans, budgets, start, end)` | End-to-end: date filter -> lazy top categories -> cached forecast -> parallel totals -> one report dict (balance, income, expenses, exceeded budgets) |
+| `run_end_to_end(path, start, end)` | The same from the start: loads `seed.json`, then builds the final report |
+| `income_and_expenses`, `spending_by_category`, `budget_status` | Pure report helpers in `core/report.py` |
 
 In **Async/FRP**, "Async aggregations" shows the monthly expenses and
 per-account balance forecast, both computed in parallel. In **Reports**,
 "Final report (one click)" runs the whole pipeline and shows balances,
-expenses by month, exceeded budgets, top categories and their forecast.
+expenses by month, exceeded budgets (of the last month in the chosen
+period), top categories and their forecast. **Reports** also shows income
+vs expenses with a chart of expenses by category, and every budget of a
+month as green (within the limit) or red (exceeded).
 
 ## Team
 
-| Member | GitHub |
-|---|---|
-| Yeskendir | [@eriknurgulde](https://github.com/eriknurgulde) |
-| Dimasena | [@Dimasena](https://github.com/Dimasena) |
-| Zhangir | [@zhangir777](https://github.com/zhangir777) |
+| Member | GitHub | Contribution |
+|---|---|---|
+| Yeskendir | [@eriknurgulde](https://github.com/eriknurgulde) | Created the repository and project structure; reviewed and merged the pull requests of Labs 1, 3, 4, 7 |
+| Dimasena | [@Dimasena](https://github.com/Dimasena) | Edits to `README.md`, `domain.py` and `main.py`; reviewed and merged the pull requests of Labs 2, 5, 6 |
+| Zhangir | [@zhangir777](https://github.com/zhangir777) | Code, tests and README of Labs 1-8: closures and recursion, memoization, Maybe/Either, lazy evaluation, FRP, composition and services, async and the final report |
