@@ -1,4 +1,7 @@
 streamlit
+fastapi
+uvicorn
+httpx
 pytest
 black
 ruff
