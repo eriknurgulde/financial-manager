@@ -13,6 +13,9 @@ TRANSACTION_ADDED = "TRANSACTION_ADDED"
 BUDGET_ALERT = "BUDGET_ALERT"
 BALANCE_ALERT = "BALANCE_ALERT"
 
+# An account with less money than this (in tenge) is "low".
+LOW_BALANCE = 10000
+
 
 class EventBus:
     def __init__(self, state: dict):
@@ -51,17 +54,31 @@ def apply_transaction(event: Event, state: dict) -> dict:
 
 def check_budget_after_transaction(event: Event, state: dict) -> dict:
     # TRANSACTION_ADDED handler: warn if the transaction's category
-    # went over its budget limit.
+    # went over its budget limit in the month of this transaction.
     t = event.payload["transaction"]
     budget = next((b for b in state["budgets"] if b.cat_id == t.cat_id), None)
     if budget is None:
         return state
 
+    month = t.ts[:7]
     spent = -sum(
-        x.amount for x in state["transactions"] if x.cat_id == t.cat_id and x.amount < 0
+        x.amount
+        for x in state["transactions"]
+        if x.cat_id == t.cat_id and x.amount < 0 and x.ts.startswith(month)
     )
     if spent > budget.limit:
         message = f"Budget exceeded for {t.cat_id}: {spent} / {budget.limit} KZT"
+        return add_notification(state, message)
+    return state
+
+
+def check_balance_after_transaction(event: Event, state: dict) -> dict:
+    # TRANSACTION_ADDED handler: warn if the account of the transaction
+    # is now low on money. (Run it after apply_transaction.)
+    acc_id = event.payload["transaction"].account_id
+    account = next(a for a in state["accounts"] if a.id == acc_id)
+    if account.balance < LOW_BALANCE:
+        message = f"Low balance on {account.name}: {account.balance} KZT"
         return add_notification(state, message)
     return state
 

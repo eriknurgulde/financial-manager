@@ -7,6 +7,7 @@ from core.frp import (
     TRANSACTION_ADDED,
     EventBus,
     apply_transaction,
+    check_balance_after_transaction,
     check_budget_after_transaction,
     on_balance_alert,
     on_budget_alert,
@@ -91,3 +92,27 @@ def test_bus_chains_two_handlers_on_same_event():
     bus.publish(TRANSACTION_ADDED, {"transaction": t})
     assert bus.state["accounts"][0].balance == 8500
     assert len(bus.state["notifications"]) == 1
+
+
+def test_budget_after_transaction_counts_only_the_same_month():
+    old = Transaction("t0", "a1", "food", -900, "2026-08-10", "x")
+    t = Transaction("t1", "a1", "food", -500, "2026-09-17", "x")
+    event = Event(TRANSACTION_ADDED, "2026-09-17", {"transaction": t})
+    state = check_budget_after_transaction(event, make_state((old, t)))
+    assert state["notifications"] == ()
+
+
+def test_low_balance_after_transaction_adds_notification():
+    t = Transaction("t1", "a1", "food", -9500, "2026-09-17", "x")
+    event = Event(TRANSACTION_ADDED, "2026-09-17", {"transaction": t})
+    state = apply_transaction(event, make_state())
+    state = check_balance_after_transaction(event, state)
+    assert len(state["notifications"]) == 1
+    assert "Wallet" in state["notifications"][0]
+
+
+def test_balance_ok_after_transaction_adds_nothing():
+    t = Transaction("t1", "a1", "food", 500, "2026-09-17", "x")
+    event = Event(TRANSACTION_ADDED, "2026-09-17", {"transaction": t})
+    state = apply_transaction(event, make_state())
+    assert check_balance_after_transaction(event, state)["notifications"] == ()
